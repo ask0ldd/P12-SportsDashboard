@@ -5,7 +5,7 @@ const Header = () => {
         <header>
             <nav>
                 <ul>
-                    <li><img src="./sportsee.svg" width="57px" height="57px" alt="sportsees logo"/>Main Title</li>
+                    <li><img src="./sportsee.svg" width="57px" height="57px" alt="sportsees logo"/>Sportsee</li>
                     <li>Accueil</li>
                     <li>Profil</li>
                     <li>Réglages</li>

@@ -11,6 +11,9 @@
 main {
   width: 100%;
   background-color: #f0f0f0; /* #eaeaea */
+  display: flex;
+  min-height: calc(100vh - 88px);
+  max-height: 100vh;
 }
 
 section {
