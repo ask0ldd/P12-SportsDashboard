@@ -16,11 +16,12 @@ main {
   max-height: 100vh;
 }
 
-section {
+.main-section {
   width: 100%;
   display: flex;
   color: black;
   flex-direction: row;
+  background-color: #fff;
 }
 
 .graphsSubSection {

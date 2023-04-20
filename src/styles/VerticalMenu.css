@@ -1,0 +1,25 @@
+.vertical-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  background-color: #020203;
+  width: 118px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.vertical-container::after {
+  content: "Copyright, SportSee 2020";
+  position: absolute;
+  bottom: 3rem;
+  left: 39%;
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+}
