@@ -1,8 +1,12 @@
 import '../styles/MenuIcon.css'
 
-const MenuIcon = () => {
+interface props {
+    iconUrl? : string | undefined
+}
+
+const MenuIcon = ({iconUrl} : props) => {
     return(
-        <div className='vmenu-icon'></div>
+        <div className='vmenu-icon'><img src={iconUrl}/></div>
     )
 }
 
