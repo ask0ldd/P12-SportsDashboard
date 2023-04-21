@@ -4,6 +4,7 @@ import Header from './components/Header'
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from './mocks/datas'
 import VerticalMenu from './components/VerticalMenu'
 import Greetings from './components/Greetings'
+import NutriDatas from './components/NutriDatas/NutriDatas'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,9 +22,7 @@ function App() {
             <div className='graphs-container'>
               aaa
             </div>
-            <div className='nutridatas-container'>
-              aaa
-            </div>
+            <NutriDatas/>
           </div>
         </section>
       </main>
