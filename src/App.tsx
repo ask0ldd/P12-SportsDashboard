@@ -3,6 +3,7 @@ import './App.css'
 import Header from './components/Header'
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from './mocks/datas'
 import VerticalMenu from './components/VerticalMenu'
+import Greetings from './components/Greetings'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,6 +16,7 @@ function App() {
         <section className='main-section'>
           <div className='graphsSubSection'>
             <div className='textnGraphsContainer'>
+              <Greetings firstname={userDatas?.firstname ? userDatas.firstname : 'N/A'}/>
             </div>
           </div>
         </section>
