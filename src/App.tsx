@@ -16,7 +16,7 @@ function App() {
         <section className='main-section'>
           <div className='graphsSubSection'>
             <div className='textnGraphsContainer'>
-              <Greetings firstname={userDatas?.firstname ? userDatas.firstname : 'N/A'}/>
+              <Greetings firstname={USER_MAIN_DATA[0]?.userInfos?.firstName ? USER_MAIN_DATA[0].userInfos?.firstName : 'N/A'}/>
             </div>
           </div>
         </section>
