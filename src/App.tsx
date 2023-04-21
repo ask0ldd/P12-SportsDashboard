@@ -18,7 +18,12 @@ function App() {
           <Greetings firstname={USER_MAIN_DATA[userId]?.userInfos?.firstName ? USER_MAIN_DATA[userId].userInfos?.firstName : 'N/A'}/>
         
           <div className='graphsnNutriDatas-container'>
-            aaa
+            <div className='graphs-container'>
+              aaa
+            </div>
+            <div className='nutridatas-container'>
+              aaa
+            </div>
           </div>
         </section>
       </main>

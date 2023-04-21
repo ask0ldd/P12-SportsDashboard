@@ -28,6 +28,13 @@ main {
 .graphsnNutriDatas-container {
   width: 100%;
   display: flex;
-  background-color: black;
   flex-direction: row;
+}
+
+.graphs-container {
+  width: 100%;
+}
+
+.nutridatas-container {
+  width: 256px;
 }
