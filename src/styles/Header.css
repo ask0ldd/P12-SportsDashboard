@@ -30,3 +30,7 @@ li {
 li img {
   margin-right: 10px;
 }
+
+.app-name {
+  color: red;
+}
