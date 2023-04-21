@@ -14,11 +14,7 @@ function App() {
       <main>
         <VerticalMenu/>
         <section className='main-section'>
-          <div className='graphsSubSection'>
-            <div className='textnGraphsContainer'>
-              <Greetings firstname={USER_MAIN_DATA[0]?.userInfos?.firstName ? USER_MAIN_DATA[0].userInfos?.firstName : 'N/A'}/>
-            </div>
-          </div>
+          <Greetings firstname={USER_MAIN_DATA[0]?.userInfos?.firstName ? USER_MAIN_DATA[0].userInfos?.firstName : 'N/A'}/>
         </section>
       </main>
     </div>
