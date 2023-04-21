@@ -7,7 +7,7 @@ interface props {
 const Greetings = ({firstname}:props) => {
     return(
         <div className="greetingsContainer">
-            <p className='hello'>Bonjour {firstname}</p>
+            <p className='hello'>Bonjour <span>{firstname}</span></p>
             <p className='congrats'>Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
         </div>
     )

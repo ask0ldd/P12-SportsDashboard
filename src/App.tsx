@@ -7,6 +7,7 @@ import Greetings from './components/Greetings'
 
 function App() {
   const [count, setCount] = useState(0)
+  const userId = 0
 
   return (
     <div className="App">
@@ -14,7 +15,11 @@ function App() {
       <main>
         <VerticalMenu/>
         <section className='main-section'>
-          <Greetings firstname={USER_MAIN_DATA[0]?.userInfos?.firstName ? USER_MAIN_DATA[0].userInfos?.firstName : 'N/A'}/>
+          <Greetings firstname={USER_MAIN_DATA[userId]?.userInfos?.firstName ? USER_MAIN_DATA[userId].userInfos?.firstName : 'N/A'}/>
+        
+          <div className='graphsnNutriDatas-container'>
+            aaa
+          </div>
         </section>
       </main>
     </div>
