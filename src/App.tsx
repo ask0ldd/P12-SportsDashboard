@@ -22,7 +22,7 @@ function App() {
             <div className='graphs-container'>
               aaa
             </div>
-            <NutriDatas/>
+            <NutriDatas userId={0}/>
           </div>
         </section>
       </main>

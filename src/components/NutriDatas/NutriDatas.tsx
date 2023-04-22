@@ -2,9 +2,13 @@ import '../../styles/NutriDatas.css'
 import NutriArticle from './NutriArticle'
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../../mocks/datas'
 
-const NutriDatas = () => {
+interface props {
+    userId : number
+}
 
-    const nutridatas = {...USER_MAIN_DATA[0].keyData}
+const NutriDatas = ({userId} : props) => {
+
+    const nutridatas = {...USER_MAIN_DATA[userId].keyData}
 
     return(
         <div className='nutridatas-container'>
