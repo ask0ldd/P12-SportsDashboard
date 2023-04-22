@@ -5,6 +5,7 @@ import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE 
 import VerticalMenu from './components/VerticalMenu/VerticalMenu'
 import Greetings from './components/Greetings'
 import NutriDatas from './components/NutriDatas/NutriDatas'
+import DailyActivity from './components/DailyActivity'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,10 +18,9 @@ function App() {
         <VerticalMenu/>
         <section className='main-section'>
           <Greetings firstname={USER_MAIN_DATA[userId]?.userInfos?.firstName ? USER_MAIN_DATA[userId].userInfos?.firstName : 'N/A'}/>
-        
           <div className='graphsnNutriDatas-container'>
             <div className='graphs-container'>
-              aaa
+              <DailyActivity userId={userId}/>
             </div>
             <NutriDatas userId={0}/>
           </div>

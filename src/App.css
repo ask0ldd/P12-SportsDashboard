@@ -21,8 +21,7 @@ main {
   display: flex;
   color: black;
   flex-direction: column;
-  /*background-color: #fff;*/
-  padding: 68px 106px;
+  padding: 68px 90px;
 }
 
 .graphsnNutriDatas-container {
