@@ -9,7 +9,7 @@ import DailyActivity from './components/DailyActivity'
 
 function App() {
   const [count, setCount] = useState(0)
-  const userId = 0
+  const userId = 1
 
   return (
     <div className="App">
