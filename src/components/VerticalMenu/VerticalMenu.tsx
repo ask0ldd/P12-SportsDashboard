@@ -1,4 +1,4 @@
-import '../styles/VerticalMenu.css'
+import '../../styles/VerticalMenu.css'
 import MenuIcon from './MenuIcon'
 
 const VerticalMenu = () => {

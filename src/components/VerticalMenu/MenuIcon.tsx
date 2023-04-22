@@ -1,4 +1,4 @@
-import '../styles/MenuIcon.css'
+import '../../styles/MenuIcon.css'
 
 interface props {
     iconUrl? : string | undefined
