@@ -7,16 +7,34 @@ interface props {
     userId : number
 }
 
+interface performance {
+    value:number
+    kind:any
+}
+
+interface parameter {
+    key:number
+    kind:string
+}
+
 const PolarChart = ({userId} : props) => {
 
-    const performancesDatas = [...USER_PERFORMANCE[userId].data]
+    const translationsArray = {'cardio' : 'Cardio', 'energy' : 'Energie', 'endurance' : 'Endurance', 'strength' : 'Force', 'speed' : 'Vitesse', 'intensity' : 'Intensité'}
+    /* kind: { 1: 'cardio', 2: 'energy', 3: 'endurance', 4: 'strength', 5: 'speed', 6: 'intensity' } */
+    /* to ['cardio', 'energy', 'endurance', 'strength', 'speed', 'intensity'] */
+    const performancesParameters : Array<string> = Object.values(USER_PERFORMANCE[userId].kind)
+    const performancesDatas : Array<performance> = USER_PERFORMANCE[userId].data
+    const perfDataswTextualKinds : Array<performance> = performancesDatas.map(data => {
+        return {value : data.value, kind : translationsArray[performancesParameters[data.kind-1] as keyof Object]} // { value: 200, kind: 1 } to { value: 200, kind: cardio } // as keyof Object : needs to specify to typescript that the key is of a valid type despite being typed any
+    })
+    // data order is reversed so :
+    const perfDatasReversed = perfDataswTextualKinds.reverse()
 
     return(
         <ResponsiveContainer width="33%" height={260} className="polarchart-container">
-            <RadarChart cx="50%" cy="50%" innerRadius="0%" outerRadius="80%" data={performancesDatas}>
+            <RadarChart cx="50%" cy="50%" innerRadius="0%" outerRadius="80%" data={perfDatasReversed}>
             <PolarGrid
-                radialLines={false} // ERROR : attribute d: Expected moveto path command ('M' or 'm'), "Z". SVG Attributes
-                // https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d
+                radialLines={false} 
                 />
                 <PolarRadiusAxis
                 tickCount={6}
