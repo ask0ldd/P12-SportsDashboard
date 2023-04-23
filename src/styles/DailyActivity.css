@@ -1,6 +1,34 @@
 .dailyactivities-container {
   max-width: 835px;
+  /*background-color: #fbfbfb;*/
   background-color: #fbfbfb;
-  height: fit-content;
+  /*height: fit-content;*/
   height: 320px;
+  margin-top: 40px;
+  padding-left: 42px;
+  padding-bottom: 24px;
+  border-radius: 5px;
+}
+
+.recharts-bar .recharts-bar-rectangle .recharts-rectangle:hover {
+  fill: red;
+}
+
+.dailyactivities-tooltip {
+  background-color: "#E60000";
+  outline: "none";
+  border: "none";
+  display: "flex";
+  flex-direction: "column";
+  font-size: 8px;
+  margin: 6px 12px;
+}
+
+.dailyactivities-tooltip p {
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  color: #fff;
 }
