@@ -8,6 +8,7 @@ import NutriDatas from './components/NutriDatas/NutriDatas'
 import DailyActivityChart from './components/DailyActivityChart'
 import AvgSessionChart from './components/AvgSessionChart'
 import PolarChart from './components/PolarChart'
+import ScoreChart from './components/ScoreChart'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -26,7 +27,7 @@ function App() {
               <div className='graphsquares-container'>
                 <AvgSessionChart userId={userId}/>
                 <PolarChart userId={userId}/>
-                <AvgSessionChart userId={userId}/>
+                <ScoreChart userId={userId}/>
               </div>
             </div>
             <NutriDatas userId={0}/>
