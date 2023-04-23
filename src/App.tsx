@@ -21,6 +21,9 @@ function App() {
           <div className='graphsnNutriDatas-container'>
             <div className='graphs-container'>
               <DailyActivity userId={userId}/>
+              <div className='graphsquares-container'>
+                
+              </div>
             </div>
             <NutriDatas userId={0}/>
           </div>

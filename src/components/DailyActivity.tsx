@@ -11,7 +11,18 @@ const CustomXAxisTick = (value : number, index:number) : string => {
 }
 
 const resizedLegendValue = (value: string, entry: any) => {
-    return <span style={{fontSize:"14px", color:"#74798C"}}>{value}</span>
+    return <span style={{fontSize:"14px", color:"#74798C", marginLeft:"8px"}}>{value}</span>
+}
+
+const CustomTooltip = ({payload} : any) => {
+    if(payload && payload.length){
+        return(
+            <div className="dailyactivities-tooltip">
+                <p>{payload[0].value+'Kg'}</p>
+                <p>{payload[1].value+'KCal'}</p>
+            </div>
+        )
+    }
 }
 
 const DailyActivity = ({userId} : props) => {
@@ -27,12 +38,17 @@ const DailyActivity = ({userId} : props) => {
                 barGap={8}
                 data={dailyDatas}
                 margin={{
-                    top: 72,
+                    top: 48,
                     right: 0,
                     left: 0,
-                    bottom: 0,
+                    bottom: 48,
                 }}>
-                    <text x={12} y={14} fill="black" textAnchor="middle" dominantBaseline="central"> {/* titre graph */}
+                    <Tooltip
+                    viewBox={{ x: 0, y: 0, width: 40, height: 65 }}
+                    wrapperStyle={{backgroundColor:"#E60000", outline:"none", border:"none"}}
+                    content={CustomTooltip}
+                    />
+                    <text x={12} y={30} fill="#20253A" textAnchor="middle" dominantBaseline="central"> {/* titre graph */}
                         <tspan x="62" dy="0" fontSize="14">Activité quotidienne</tspan>
                     </text>
                     <CartesianGrid 
@@ -52,10 +68,12 @@ const DailyActivity = ({userId} : props) => {
                     <YAxis 
                     yAxisId={0} /* id kg Axis */
                     dataKey="kilogram"
+                    type="number"
                     domain={['dataMin-1', 'dataMax+2']} /* Y axis base value / max value */
                     tickCount={3} /* 3 values on Y weight axis */
                     tickLine={false} /* only numbers */
                     axisLine={false}
+                    allowDecimals={false}
                     orientation="right"
                     tick={{ fill: '#9B9EAC' }}
                     />
@@ -63,15 +81,16 @@ const DailyActivity = ({userId} : props) => {
                     hide={true} /* don't need to be shown, only here to scale bars */
                     yAxisId={1} /* id calories Axis */
                     dataKey="calories"
+                    type="number"
                     domain={['dataMin-100', 'dataMax+100']}
+                    allowDecimals={false}
                     />
-                    <Tooltip />
                     <Legend 
                     align="right"
                     verticalAlign='top'
-                    width={277}
+                    width={290}
                     iconSize={8}
-                    wrapperStyle={{top:20, right:24}}
+                    wrapperStyle={{top:8, right:24}}
                     payload={[{ value: 'Poids (kg)', type: 'circle', id: 'ID01', color: '#282D30'}, { value: 'Calories brûlées (kCal)', type: 'circle', id: 'ID02', color: '#E60000' }]}
                     formatter={resizedLegendValue}
                     />
