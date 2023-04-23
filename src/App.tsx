@@ -5,7 +5,8 @@ import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE 
 import VerticalMenu from './components/VerticalMenu/VerticalMenu'
 import Greetings from './components/Greetings'
 import NutriDatas from './components/NutriDatas/NutriDatas'
-import DailyActivity from './components/DailyActivity'
+import DailyActivityChart from './components/DailyActivityChart'
+import AvgSessionChart from './components/AvgSessionChart'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,9 +21,11 @@ function App() {
           <Greetings firstname={USER_MAIN_DATA[userId]?.userInfos?.firstName ? USER_MAIN_DATA[userId].userInfos?.firstName : 'N/A'}/>
           <div className='graphsnNutriDatas-container'>
             <div className='graphs-container'>
-              <DailyActivity userId={userId}/>
+              <DailyActivityChart userId={userId}/>
               <div className='graphsquares-container'>
-                
+                <AvgSessionChart userId={userId}/>
+                <AvgSessionChart userId={userId}/>
+                <AvgSessionChart userId={userId}/>
               </div>
             </div>
             <NutriDatas userId={0}/>
