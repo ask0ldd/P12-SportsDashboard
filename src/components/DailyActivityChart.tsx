@@ -28,7 +28,6 @@ const CustomTooltip = ({payload} : any) => {
 const DailyActivityChart = ({userId} : props) => {
 
     const dailyDatas = [...USER_ACTIVITY[userId].sessions]
-    console.log(dailyDatas)
 
     return(
         <article className='dailyactivities-container'>

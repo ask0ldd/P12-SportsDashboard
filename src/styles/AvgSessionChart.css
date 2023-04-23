@@ -3,4 +3,9 @@
   margin: 0;
   background-color: #ff0000;
   border-radius: 5px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
 }

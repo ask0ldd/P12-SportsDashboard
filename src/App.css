@@ -38,7 +38,6 @@ main {
 .graphsquares-container {
   margin-top: 32px;
   width: 100%;
-  background-color: bisque;
   display: flex;
   column-gap: 32px;
 }
