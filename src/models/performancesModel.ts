@@ -1,5 +1,5 @@
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../mocks/datas'
-import { mainDatas, userActivity, userPerformances, averageSessions } from '../types/modelTypes'
+import { mainDatas, userActivity, userPerformances, averageSessions, session } from '../types/modelTypes'
 
 class PerformanceModel {
 
@@ -29,10 +29,21 @@ class PerformanceModel {
     }
 
     get avgSessions() {
-        const week = ['L', 'M', 'M', 'J', 'V', 'S', 'D'] // day : 1 - day : 6 to day : lun - day : dim
+        const week = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+        // day : 1 - day : 6 to day : L - day : D
         const formatedSessions  = this.userSession.sessions.map(session => {return ({ day : week[session.day-1], sessionLength : session.sessionLength })})
-        // console.log(formatedSessions)
         return formatedSessions
+    }
+
+    get dailyDatas (){
+        // sorting by date as a security
+        const sessions = [...this.userActivity.sessions]
+        sessions.sort(function (a : session, b : session){
+            if(new Date(a.day) > new Date(b.day)) return 1
+            if(new Date(a.day) < new Date(b.day)) return -1
+            return 0
+        })
+        return sessions
     }
 }
 

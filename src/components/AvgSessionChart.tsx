@@ -16,11 +16,6 @@ const CustomTooltip = ({payload} : any) => {
     }
 }
 
-/*const customXTicks = (value : number) => {
-    const week = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
-    return week[value-1]
-}*/
-
 const styleTitle = (value: string, entry: any) => {
     const twoPartsSentence = value.split('<br>')
     return (<div style={{fontSize:"15px", color:"#FF8484", marginTop:"-24px"}}>{twoPartsSentence[0]}<br/>{twoPartsSentence[1]}</div>)
@@ -39,7 +34,6 @@ const AvgSessionChart = ({avgSessions} : props) => {
             tickLine={false}
             axisLine={false}
             tick={{ fill: '#FF8484' }}
-            /*tickFormatter={customXTicks} */ /* instead of day : 1 to 7 => L to D */
             />
             <YAxis dataKey="sessionLength"
             padding={{ top: 0, bottom: 0 }}
@@ -64,7 +58,6 @@ const AvgSessionChart = ({avgSessions} : props) => {
             align="left"
             wrapperStyle={{top:20, left:18, color:"#FF8484"}}
             iconSize={0}
-            /*content={renderLegend({ value: 'Durée moyenne des sessions' })}*/
             payload={[{ value : 'Durée moyenne<br>des sessions'}]}
             formatter={styleTitle}
             />

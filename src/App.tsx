@@ -24,7 +24,7 @@ function App() {
           <Greetings firstname={userDatas.firstName ? userDatas.firstName : 'N/A'}/>
           <div className='graphsnNutriDatas-container'>
             <div className='graphs-container'>
-              <DailyActivityChart userId={userId}/>
+              <DailyActivityChart dailyDatas={userDatas.dailyDatas}/>
               <div className='graphsquares-container'>
                 <AvgSessionChart avgSessions={userDatas.avgSessions ? userDatas.avgSessions : blankSessions}/>
                 <PolarChart userId={userId}/>

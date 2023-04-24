@@ -1,9 +1,10 @@
 import '../styles/DailyActivityChart.css'
 import { USER_ACTIVITY } from '../mocks/datas'
 import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Bar, Tooltip, Legend } from 'recharts'
+import { session } from '../types/modelTypes'
 
 interface props {
-    userId : number
+    dailyDatas : Array<session>
 }
 
 const CustomXAxisTick = (value : number, index:number) : string => {
@@ -25,9 +26,9 @@ const CustomTooltip = ({payload} : any) => {
     }
 }
 
-const DailyActivityChart = ({userId} : props) => {
+const DailyActivityChart = ({dailyDatas} : props) => {
 
-    const dailyDatas = [...USER_ACTIVITY[userId].sessions]
+    // const dailyDatas = [...USER_ACTIVITY[userId].sessions]
 
     return(
         <article className='dailyactivities-container'>
