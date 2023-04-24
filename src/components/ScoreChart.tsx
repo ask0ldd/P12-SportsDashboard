@@ -3,37 +3,12 @@ import '../styles/ScoreChart.css'
 import { USER_MAIN_DATA } from '../mocks/datas'
 
 interface props {
-    userId : number
+    score : number
 }
 
-interface userinfos {
-    firstName : string
-    lastName : string
-    age : number
-}
+const ScoreChart = ({score} : props) => {
 
-interface nutridatas {
-    calorieCount: number
-    proteinCount: number
-    carbohydrateCount: number
-    lipidCount: number
-}
-
-interface mainDatas {
-    id: number
-    userInfos: userinfos
-    todayScore?: number
-    score?: number
-    keyData: nutridatas
-}
-
-const ScoreChart = ({userId} : props) => {
-
-    // console.log(USER_MAIN_DATA[userId])
-
-    const userMainDatas : mainDatas = USER_MAIN_DATA[userId]
-    // !!! should use typescript keyremapping instead
-    const datas = [{ score : userMainDatas.score || userMainDatas.todayScore, fill: '#E60000' }] // fill as to be passed in the datas to set the color of the radialbar
+    const datas = [{ score : score, fill: '#E60000' }] // fill as to be passed in the datas to set the color of the radialbar
 
     // the biggest value passed to a radialbar is set as 100% : full circle
     // here, there is only one value so 0.3 is considered to represent a full circle

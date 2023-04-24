@@ -1,7 +1,7 @@
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../mocks/datas'
 import { mainDatas, userActivity, userPerformances, averageSessions } from '../types/modelTypes'
 
-class PerformanceDatas {
+class PerformanceModel {
 
     mainDatas : mainDatas
     userActivity : userActivity
@@ -16,7 +16,8 @@ class PerformanceDatas {
     }
 
     get score () {
-        return this.mainDatas.score || this.mainDatas.todayScore
+        // "as number" to override the type by default : number | undefined (due to the fact it doesn't always exist among the datas)
+        return this.mainDatas.score as number || this.mainDatas.todayScore as number
     }
 
     get firstName(){
@@ -24,4 +25,4 @@ class PerformanceDatas {
     }
 }
 
-export default PerformanceDatas
+export default PerformanceModel

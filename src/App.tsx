@@ -9,13 +9,13 @@ import DailyActivityChart from './components/DailyActivityChart'
 import AvgSessionChart from './components/AvgSessionChart'
 import PolarChart from './components/PolarChart'
 import ScoreChart from './components/ScoreChart'
-import PerformanceDatas from './models/performancesModel'
+import PerformanceModel from './models/performancesModel'
 
 function App() {
   const [count, setCount] = useState(0)
   const userId = 1
 
-  const perf = new PerformanceDatas(18)
+  const userDatas = new PerformanceModel(18)
 
   return (
     <div className="App">
@@ -23,14 +23,14 @@ function App() {
       <main>
         <VerticalMenu/>
         <section className='main-section'>
-          <Greetings firstname={USER_MAIN_DATA[userId]?.userInfos?.firstName ? USER_MAIN_DATA[userId].userInfos?.firstName : 'N/A'}/>
+          <Greetings firstname={userDatas.firstName ? userDatas.firstName : 'N/A'}/>
           <div className='graphsnNutriDatas-container'>
             <div className='graphs-container'>
               <DailyActivityChart userId={userId}/>
               <div className='graphsquares-container'>
                 <AvgSessionChart userId={userId}/>
                 <PolarChart userId={userId}/>
-                <ScoreChart userId={userId}/>
+                <ScoreChart score={userDatas.score}/>
               </div>
             </div>
             <NutriDatas userId={0}/>
