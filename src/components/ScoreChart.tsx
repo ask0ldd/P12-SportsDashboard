@@ -29,7 +29,7 @@ interface mainDatas {
 
 const ScoreChart = ({userId} : props) => {
 
-    console.log(USER_MAIN_DATA[userId])
+    // console.log(USER_MAIN_DATA[userId])
 
     const userMainDatas : mainDatas = USER_MAIN_DATA[userId]
     // !!! should use typescript keyremapping instead

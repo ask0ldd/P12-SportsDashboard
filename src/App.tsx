@@ -9,10 +9,13 @@ import DailyActivityChart from './components/DailyActivityChart'
 import AvgSessionChart from './components/AvgSessionChart'
 import PolarChart from './components/PolarChart'
 import ScoreChart from './components/ScoreChart'
+import PerformanceDatas from './models/performancesModel'
 
 function App() {
   const [count, setCount] = useState(0)
   const userId = 1
+
+  const perf = new PerformanceDatas(18)
 
   return (
     <div className="App">
