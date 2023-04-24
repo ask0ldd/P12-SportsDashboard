@@ -1,6 +1,5 @@
 import { RadialBarChart, RadialBar, PolarAngleAxis, PieChart, ResponsiveContainer, Pie, Cell } from "recharts";
 import '../styles/ScoreChart.css'
-import { USER_MAIN_DATA } from '../mocks/datas'
 
 interface props {
     score : number

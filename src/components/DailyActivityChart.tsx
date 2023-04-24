@@ -1,5 +1,5 @@
 import '../styles/DailyActivityChart.css'
-import {USER_ACTIVITY} from '../mocks/datas'
+import { USER_ACTIVITY } from '../mocks/datas'
 import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Bar, Tooltip, Legend } from 'recharts'
 
 interface props {

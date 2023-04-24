@@ -1,21 +1,19 @@
 import '../../styles/NutriDatas.css'
 import NutriArticle from './NutriArticle'
-import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../../mocks/datas'
+import { nutridatas } from '../../types/modelTypes'
 
 interface props {
-    userId : number
+    nutriDatas : nutridatas
 }
 
-const NutriDatas = ({userId} : props) => {
-
-    const nutridatas = {...USER_MAIN_DATA[userId].keyData}
+const NutriDatas = ({nutriDatas} : props) => {
 
     return(
         <div className='nutridatas-container'>
-            <NutriArticle iconUrl="icons/fire.svg" iconBg="#FBEAEA" nutriValue={nutridatas.calorieCount+'Kcal'} nutriUnit="Calories"/>
-            <NutriArticle iconUrl="icons/prot.svg" iconBg="#E9F4FB" nutriValue={nutridatas.proteinCount+'g'} nutriUnit="Proteines"/>
-            <NutriArticle iconUrl="icons/apple.svg" iconBg="#FAF6E5" nutriValue={nutridatas.carbohydrateCount+'g'} nutriUnit="Glucides"/>
-            <NutriArticle iconUrl="icons/burger.svg" iconBg="#FBEAEF" nutriValue={nutridatas.lipidCount+'g'} nutriUnit="Lipides"/>
+            <NutriArticle iconUrl="icons/fire.svg" iconBg="#FBEAEA" nutriValue={nutriDatas.calorieCount+'Kcal'} nutriUnit="Calories"/>
+            <NutriArticle iconUrl="icons/prot.svg" iconBg="#E9F4FB" nutriValue={nutriDatas.proteinCount+'g'} nutriUnit="Proteines"/>
+            <NutriArticle iconUrl="icons/apple.svg" iconBg="#FAF6E5" nutriValue={nutriDatas.carbohydrateCount+'g'} nutriUnit="Glucides"/>
+            <NutriArticle iconUrl="icons/burger.svg" iconBg="#FBEAEF" nutriValue={nutriDatas.lipidCount+'g'} nutriUnit="Lipides"/>
         </div>
     )
 }

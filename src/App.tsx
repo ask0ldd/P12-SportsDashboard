@@ -33,7 +33,7 @@ function App() {
                 <ScoreChart score={userDatas.score}/>
               </div>
             </div>
-            <NutriDatas userId={0}/>
+            <NutriDatas nutriDatas={userDatas.nutriDatas}/>
           </div>
         </section>
       </main>

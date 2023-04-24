@@ -15,13 +15,17 @@ class PerformanceModel {
         this.userPerformances = (USER_PERFORMANCE.filter((data : userPerformances) => data.userId === userId))[0]
     }
 
-    get score () {
+    get score() {
         // "as number" to override the type by default : number | undefined (due to the fact it doesn't always exist among the datas)
         return this.mainDatas.score as number || this.mainDatas.todayScore as number
     }
 
-    get firstName(){
+    get firstName() {
         return this.mainDatas.userInfos.firstName
+    }
+
+    get nutriDatas() {
+        return this.mainDatas.keyData
     }
 }
 
