@@ -1,10 +1,17 @@
 import '../styles/AvgSessionChart.css'
 import { ResponsiveContainer, LineChart, XAxis, YAxis, Line, Legend, Tooltip } from 'recharts'
-import {USER_AVERAGE_SESSIONS} from '../mocks/datas'
+// import {USER_AVERAGE_SESSIONS} from '../mocks/datas'
+import { sessionAvg } from '../types/modelTypes'
 
-interface props {
-    userId : number
+
+interface session {
+    day: string
+    sessionLength: number
 }
+
+// interface props extends Array<session>{}
+
+type props = session[]
 
 const CustomTooltip = ({payload} : any) => {
     if (payload && payload.length) {
@@ -12,25 +19,22 @@ const CustomTooltip = ({payload} : any) => {
     }
 }
 
-const customXTicks = (value : number) => {
+/*const customXTicks = (value : number) => {
     const week = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
     return week[value-1]
-}
+}*/
 
 const styleTitle = (value: string, entry: any) => {
     const twoPartsSentence = value.split('<br>')
     return (<div style={{fontSize:"15px", color:"#FF8484", marginTop:"-24px"}}>{twoPartsSentence[0]}<br/>{twoPartsSentence[1]}</div>)
 }
 
-const AvgSessionChart = ({userId} : props) => {
-
-    const sessionsDatas = [...USER_AVERAGE_SESSIONS[userId].sessions]
-
+const AvgSessionChart = ({avgSessions} : props) => {
 
     return(
     <ResponsiveContainer width="33%" height={260} className="sessionschart-container">
         <LineChart
-        data={sessionsDatas}
+        data={avgSessions}
         margin={{ top: 16, right: 24, bottom: 16, left: 24 }}
         >
             <XAxis dataKey="day"
@@ -38,7 +42,7 @@ const AvgSessionChart = ({userId} : props) => {
             tickLine={false}
             axisLine={false}
             tick={{ fill: '#FF8484' }}
-            tickFormatter={customXTicks} /* instead of day : 1 to 7 => L to D */
+            /*tickFormatter={customXTicks} */ /* instead of day : 1 to 7 => L to D */
             />
             <YAxis dataKey="sessionLength"
             padding={{ top: 0, bottom: 0 }}

@@ -17,6 +17,8 @@ function App() {
 
   const userDatas = new PerformanceModel(18)
 
+  console.log(userDatas.avgSessions)
+
   return (
     <div className="App">
       <Header></Header>
@@ -28,12 +30,12 @@ function App() {
             <div className='graphs-container'>
               <DailyActivityChart userId={userId}/>
               <div className='graphsquares-container'>
-                <AvgSessionChart userId={userId}/>
+                <AvgSessionChart avgSessions={userDatas.avgSessions}/>
                 <PolarChart userId={userId}/>
-                <ScoreChart score={userDatas.score}/>
+                <ScoreChart score={userDatas.score ? userDatas.score : 0}/>
               </div>
             </div>
-            <NutriDatas nutriDatas={userDatas.nutriDatas}/>
+            <NutriDatas nutriDatas={userDatas.nutriDatas ? userDatas.nutriDatas : {calorieCount: 0, proteinCount: 0, carbohydrateCount: 0, lipidCount: 0}}/>
           </div>
         </section>
       </main>

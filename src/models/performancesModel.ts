@@ -27,6 +27,13 @@ class PerformanceModel {
     get nutriDatas() {
         return this.mainDatas.keyData
     }
+
+    get avgSessions() {
+        const week = ['L', 'M', 'M', 'J', 'V', 'S', 'D'] // day : 1 - day : 6 to day : lun - day : dim
+        const formatedSessions  = this.userSession.sessions.map(session => {return ({ day : week[session.day-1], sessionLength : session.sessionLength })})
+        // console.log(formatedSessions)
+        return formatedSessions
+    }
 }
 
 export default PerformanceModel
