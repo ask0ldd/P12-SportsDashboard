@@ -17,6 +17,11 @@ interface parameter {
     kind:string
 }
 
+const customEnduranceTick = (value : any) => {
+    if(value!=="Endurance") return value
+    return (<div>{value as string}</div>)
+}
+
 const PolarChart = ({userId} : props) => {
 
     const translationsArray = {'cardio' : 'Cardio', 'energy' : 'Energie', 'endurance' : 'Endurance', 'strength' : 'Force', 'speed' : 'Vitesse', 'intensity' : 'Intensité'}
@@ -45,7 +50,8 @@ const PolarChart = ({userId} : props) => {
                 <PolarAngleAxis 
                 dataKey="kind" 
                 axisLine={false} 
-                tickLine={false} 
+                tickLine={false}
+                tickFormatter={customEnduranceTick}
                 tick={{ fontSize: '10px', fill:'#FFFFFF' }}
                 allowDuplicatedCategory={false}/>
                 <Radar dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.7} />
