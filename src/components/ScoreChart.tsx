@@ -41,6 +41,9 @@ const ScoreChart = ({userId} : props) => {
     return(
         <ResponsiveContainer width="33%" height={260} className="scorechart-container"> 
             <RadialBarChart cx="50%" cy="50%" innerRadius="70%" outerRadius="80%" barSize={10} data={datas} startAngle={90} /* start at the top */ endAngle={450} /* anticlockwise since the attribute is deprecated */ > 
+                <text x={12} y={14} fill="black" textAnchor="end" dominantBaseline="end">
+                    <tspan x="58" y="34" fontWeight={500} fontSize="15">Score</tspan>
+                </text>
                 <PolarAngleAxis type="number" domain={[0, 1]} angleAxisId={0} tick={false} />
                 <RadialBar
                 angleAxisId={0} 

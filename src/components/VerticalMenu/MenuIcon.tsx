@@ -6,7 +6,7 @@ interface props {
 
 const MenuIcon = ({iconUrl} : props) => {
     return(
-        <div className='vmenu-icon'><img src={iconUrl}/></div>
+        <a className='vmenu-icon' href="#"><img src={iconUrl}/></a>
     )
 }
 
