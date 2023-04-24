@@ -27,7 +27,7 @@ export interface mainDatas {
 /* userActivity interface */
 /* */
 export interface session {
-    day : Date
+    day : string
     kilogram : number
     calories : number
 }
