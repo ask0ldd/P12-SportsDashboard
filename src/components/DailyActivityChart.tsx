@@ -1,5 +1,4 @@
 import '../styles/DailyActivityChart.css'
-import { USER_ACTIVITY } from '../mocks/datas'
 import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Bar, Tooltip, Legend } from 'recharts'
 import { session } from '../types/modelTypes'
 
@@ -27,8 +26,6 @@ const CustomTooltip = ({payload} : any) => {
 }
 
 const DailyActivityChart = ({dailyDatas} : props) => {
-
-    // const dailyDatas = [...USER_ACTIVITY[userId].sessions]
 
     return(
         <article className='dailyactivities-container'>

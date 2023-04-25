@@ -35,3 +35,41 @@ export const blankNutridatas = {
     carbohydrateCount: 0, 
     lipidCount: 0
 }
+
+export const blankDailyActivities = [
+    {
+        day: '2020-07-01',
+        kilogram: 0,
+        calories: 0
+    },
+    {
+        day: '2020-07-02',
+        kilogram: 0,
+        calories: 0
+    },
+    {
+        day: '2020-07-03',
+        kilogram: 0,
+        calories: 0
+    },
+    {
+        day: '2020-07-04',
+        kilogram: 0,
+        calories: 0
+    },
+    {
+        day: '2020-07-05',
+        kilogram: 0,
+        calories: 0
+    },
+    {
+        day: '2020-07-06',
+        kilogram: 0,
+        calories: 0
+    },
+    {
+        day: '2020-07-07',
+        kilogram: 0,
+        calories: 0
+    }
+]
