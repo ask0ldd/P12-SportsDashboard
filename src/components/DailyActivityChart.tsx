@@ -29,7 +29,7 @@ const DailyActivityChart = ({dailyDatas} : props) => {
 
     return(
         <article className='dailyactivities-container'>
-            <ResponsiveContainer width="99%" height="100%">
+            <ResponsiveContainer width="99%" height={320}>
                 <BarChart
                 barCategoryGap='10%'
                 barGap={8}

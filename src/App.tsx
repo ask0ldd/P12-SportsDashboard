@@ -28,7 +28,7 @@ function App() {
               <div className='graphsquares-container'>
                 <AvgSessionChart avgSessions={userDatas.avgSessions ? userDatas.avgSessions : blankSessions}/>
                 <PolarChart perfDatas={userDatas.performanceDatas}/>
-                <ScoreChart score={userDatas.score ? userDatas.score : 0}/>
+                <ScoreChart score={userDatas.score ? userDatas.score : 0}/>{/**/}
               </div>
             </div>
             <NutriDatas nutriDatas={userDatas.nutriDatas ? userDatas.nutriDatas : blankNutridatas}/>

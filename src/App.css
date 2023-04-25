@@ -21,6 +21,7 @@ main {
   flex-direction: column;
   padding: 48px 90px 68px 90px;
   flex: 1 1 calc(100% - 118px);
+  min-width: 0;
 }
 
 .graphsnNutriDatas-container {
@@ -37,11 +38,13 @@ main {
   flex-direction: column;
   flex: 1 1 100%;
   max-width: 892px;
+  min-width: 0;
 }
 
 .graphsquares-container {
   margin-top: 33px;
   display: flex;
+  flex-direction: row;
   column-gap: 32px;
   height: 263px;
 }
