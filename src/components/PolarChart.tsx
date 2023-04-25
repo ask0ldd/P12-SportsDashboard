@@ -10,7 +10,36 @@ interface props {
 
 const customEnduranceTick = (value : any) => {
     if(value!=="Endurance") return value
-    return (<div>{value as string}</div>)
+    return (<div><br/>{value as string}</div>)
+}
+
+const CustomPositionTicks = (props: any) => {
+    let dx = 0
+    let dy = 0
+    switch(props.payload.value){
+      case 'endurance' :
+        dy = 8; dx = -24;
+      break;
+      case 'intensité' :
+        dy = -2; dx = -20;
+      break;
+      case 'force' :
+        dy = 6;
+      break;
+      case 'cardio' :
+        dx = -28;
+      break;
+      case 'energie' :
+        dy = 6 ; dx = -32;
+      break;      
+    }
+    return (
+        <g transform={`translate(${props.x},${props.y})`}>
+        <text fontSize="10px" x={0} y={0} dx={dx} dy={dy} textAnchor="start" fill="#ffffff">
+            {props.payload.value}
+        </text>
+      </g>
+    )
 }
 
 const PolarChart = ({perfDatas} : props) => {
@@ -32,14 +61,15 @@ const PolarChart = ({perfDatas} : props) => {
                     dataKey="kind" 
                     axisLine={false} 
                     tickLine={false}
-                    tickFormatter={customEnduranceTick}
-                    tick={{ fontSize: '10px', fill:'#FFFFFF' }}
+                    tick={<CustomPositionTicks/>}
+                    /* tickFormatter={customEnduranceTick} */
+                    /*tick={{ fontSize: '10px', fill:'#FFFFFF' }}*/
                     allowDuplicatedCategory={false}/>
                     <Radar dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.7} />
                     <Tooltip
                     wrapperStyle={{outline:'none', border:'none'}}
                     itemStyle={{color:'#000', fontSize:'10px'}}
-                    labelStyle={{color:'#000',display:'none'}}
+                    labelStyle={{color:'#000', display:'none'}}
                     cursor={false}
                     />
                 </RadarChart>
