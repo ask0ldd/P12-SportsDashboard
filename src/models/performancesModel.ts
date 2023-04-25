@@ -16,7 +16,7 @@ class PerformanceModel {
     }
 
     get score() {
-        // "as number" to override the type by default : number | undefined (due to the fact it doesn't always exist among the datas)
+        // "as number" to override the type by default which is : number | undefined (due to the fact it doesn't always exist among the datas)
         const score : number = this.mainDatas.score as number || this.mainDatas.todayScore as number
         return score
     }

@@ -8,33 +8,12 @@ interface props {
     perfDatas : Array<performance>
 }
 
-/*interface performance {
-    value:number
-    kind:any
-}
-
-interface parameter {
-    key:number
-    kind:string
-}*/
-
 const customEnduranceTick = (value : any) => {
     if(value!=="Endurance") return value
     return (<div>{value as string}</div>)
 }
 
 const PolarChart = ({perfDatas} : props) => {
-
-    /*const translationsArray = {'cardio' : 'Cardio', 'energy' : 'Energie', 'endurance' : 'Endurance', 'strength' : 'Force', 'speed' : 'Vitesse', 'intensity' : 'Intensité'}
-    // kind: { 1: 'cardio', 2: 'energy', 3: 'endurance', 4: 'strength', 5: 'speed', 6: 'intensity' }
-    // to ['cardio', 'energy', 'endurance', 'strength', 'speed', 'intensity'] / consequence : index decreased by 1
-    const perfParameters : Array<string> = Object.values(USER_PERFORMANCE[userId].kind)
-    const perfDatas : Array<performance> = USER_PERFORMANCE[userId].data
-    const perfDataswTextualKinds : Array<performance> = perfDatas.map(data => {
-        return {value : data.value, kind : translationsArray[perfParameters[data.kind-1] as keyof Object]} // { value: 200, kind: 1 } to { value: 200, kind: cardio } // as keyof Object : needs to specify to typescript that the key is of a valid type despite being typed any
-    })
-    // data order is reversed so :
-    const perfDatasReversed = perfDataswTextualKinds.reverse()*/
 
     return(
         <ResponsiveContainer width="33%" height={260} className="polarchart-container">
