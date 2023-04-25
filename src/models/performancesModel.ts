@@ -49,15 +49,26 @@ class PerformanceModel {
         return sessions
     }
 
-    get performanceDatas (){
+    get performanceDatas (){ // gerer si données incorrectes
         const perfs : Array<performance> = [...this.userPerformances.data]
         // {1: 'cardio', ... , 6: 'intensity'} => ['cardio', ... , 'intensity']
+        const translations : Dico = {cardio : 'cardio', energy : 'energie', endurance : 'endurance', strength : 'force', speed : 'vitesse', intensity : 'intensité'}
         const perfKind : Array<string> = Object.values(this.userPerformances.kind)
         const formatedPerfs = perfs.map((perf : performance) => {
-            return {value : perf.value, kind : perfKind[perf.kind-1]}
+            return {value : perf.value, kind : translations[perfKind[perf.kind-1] as keyof Dico]}
         })
-        return formatedPerfs
+        // needs to be displayed in a reversed order
+        return formatedPerfs.reverse()
     }
+}
+
+interface Dico{
+    cardio : string
+    energy : string
+    endurance : string
+    strength : string
+    speed : string
+    intensity : string
 }
 
 export default PerformanceModel
