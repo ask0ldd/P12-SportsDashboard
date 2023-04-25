@@ -13,7 +13,7 @@ const ScoreChart = ({score} : props) => {
     // here, there is only one value so 0.3 is considered to represent a full circle
     // or we want 0.3 to be 360 / 0.3 deg so we use a polarangleaxis to scale it, setting the max to 1
     return(
-        <ResponsiveContainer width="33%" height={260} className="scorechart-container"> 
+        <ResponsiveContainer width="33%" height="100%" className="scorechart-container"> 
             <RadialBarChart cx="50%" cy="50%" innerRadius="70%" outerRadius="80%" barSize={10} data={datas} startAngle={90} /* start at the top */ endAngle={450} /* anticlockwise since the attribute is deprecated */ > 
                 <text x={12} y={14} fill="black" textAnchor="end" dominantBaseline="end">
                     <tspan x="58" y="34" fontWeight={500} fontSize="15">Score</tspan>

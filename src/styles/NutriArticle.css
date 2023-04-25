@@ -1,5 +1,6 @@
 .nutri-article {
   width: 100%;
+  min-width: 258px;
   height: 124px;
   display: flex;
   padding: 2rem;

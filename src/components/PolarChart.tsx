@@ -16,7 +16,7 @@ const customEnduranceTick = (value : any) => {
 const PolarChart = ({perfDatas} : props) => {
 
     return(
-        <ResponsiveContainer width="33%" height={260} className="polarchart-container">
+        <ResponsiveContainer width="33%" height="100%" className="polarchart-container">
             <RadarChart cx="50%" cy="50%" innerRadius="0%" outerRadius="80%" data={perfDatas}>
             <PolarGrid
                 radialLines={false} 

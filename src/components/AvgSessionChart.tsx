@@ -24,7 +24,7 @@ const styleTitle = (value: string, entry: any) => {
 const AvgSessionChart = ({avgSessions} : props) => {
 
     return(
-    <ResponsiveContainer width="33%" height={260} className="sessionschart-container">
+    <ResponsiveContainer width="33%" height="100%" className="sessionschart-container">
         <LineChart
         data={avgSessions}
         margin={{ top: 16, right: 24, bottom: 16, left: 24 }}

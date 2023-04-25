@@ -15,29 +15,33 @@ main {
 }
 
 .main-section {
-  width: 100%;
+  /*width: calc(100% - 118px);*/
   display: flex;
   color: black;
   flex-direction: column;
   padding: 48px 90px 68px 90px;
+  flex: 1 1 calc(100% - 118px);
 }
 
 .graphsnNutriDatas-container {
-  width: 100%;
   display: flex;
   flex-direction: row;
   column-gap: 2rem;
+  margin-top: 40px;
+  flex: 1 1 100%;
+  /*flex-wrap: wrap;*/
 }
 
 .graphs-container {
   display: flex;
   flex-direction: column;
   flex: 1 1 100%;
+  max-width: 892px;
 }
 
 .graphsquares-container {
-  margin-top: 32px;
-  width: 100%;
+  margin-top: 33px;
   display: flex;
   column-gap: 32px;
+  height: 263px;
 }

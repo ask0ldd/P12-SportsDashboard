@@ -29,7 +29,7 @@ const DailyActivityChart = ({dailyDatas} : props) => {
 
     return(
         <article className='dailyactivities-container'>
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="99%" height="100%">
                 <BarChart
                 barCategoryGap='10%'
                 barGap={8}
@@ -44,6 +44,7 @@ const DailyActivityChart = ({dailyDatas} : props) => {
                     viewBox={{ x: 0, y: 0, width: 40, height: 65 }}
                     wrapperStyle={{backgroundColor:"#E60000", outline:"none", border:"none"}}
                     content={CustomTooltip}
+                    cursor={{opacity:0.5}} /* grey active bar hover */
                     />
                     <text x={12} y={30} fill="#20253A" textAnchor="middle" dominantBaseline="central"> {/* titre graph */}
                         <tspan x="62" dy="0" fontSize="14">Activité quotidienne</tspan>
