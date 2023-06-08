@@ -21,21 +21,40 @@ const styleTitle = (value: string, entry: any) => {
     return (<div style={{fontSize:"15px", color:"#FF8484", marginTop:"-24px"}}>{twoPartsSentence[0]}<br/>{twoPartsSentence[1]}</div>)
 }
 
+const onMouseMove = (hoveredData : any) => { // any > needs better typing
+    if (hoveredData && hoveredData.activePayload && sessionsDatas && sessionsDatas?.length > 0) {
+        const hoveredX = hoveredData.activePayload[0].payload.day
+        const index = sessionsDatas?.findIndex(d => d.day === hoveredX)
+        const postTooltipBG = document.querySelector('#postTooltipBG')
+        postTooltipBG?.setAttribute("x", index*(100/7) + 9 + "%")
+        postTooltipBG?.setAttribute("width", 100 - (index*(100/7) + 9) + "%") /* NEEDS TO BE RESPONSIVE */
+    }
+}
+
+const onMouseOut = () => {
+    const postTooltipBG = document.querySelector('#postTooltipBG')
+    postTooltipBG?.setAttribute("width", "0%")
+}
+
 const AvgSessionChart = ({avgSessions} : props) => {
 
     return(
-        /* 99% and fixed height or difficulties to resize with parent */
+        /* 99% and fixed height or difficulties to resize with parent */ /* Soutenance : Gradient */
         <ResponsiveContainer width="99%" height={263} className="sessionschart-container"> 
             <LineChart
             data={avgSessions}
             margin={{ top: 16, right: 24, bottom: 16, left: 24 }}
+            onMouseMove={onMouseMove}
+            onMouseLeave={onMouseOut}
             >
-                <defs>
+                <defs> {/* Soutenance : Gradient */}
                     <linearGradient id="colorUv" x1="0" y1="0" x2="1" y2="0">
                         <stop offset="0%" stopColor="#FFFFFF" stopOpacity={0.4} />
                         <stop offset="100%" stopColor="#FFFFFF" stopOpacity={0.7} />
                     </linearGradient>
                 </defs>
+                <rect id="postTooltipBG" x="9%" width="14%" height="100%" opacity="0.2" /* DARK BG AFTER TOOLTIP */
+                />
                 <XAxis dataKey="day"
                 padding={{ left: 0, right: 0 }}
                 tickLine={false}
@@ -50,7 +69,7 @@ const AvgSessionChart = ({avgSessions} : props) => {
                 <Line 
                 type='natural' 
                 dataKey="sessionLength" 
-                stroke="url(#colorUv)" /* !!! TODO LINEAR GRADIEN INSTEAD */
+                stroke="url(#colorUv)" /* Soutenance : Gradient */
                 strokeWidth={2}
                 dot={false}
                 />
