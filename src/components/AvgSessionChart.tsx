@@ -30,6 +30,12 @@ const AvgSessionChart = ({avgSessions} : props) => {
             data={avgSessions}
             margin={{ top: 16, right: 24, bottom: 16, left: 24 }}
             >
+                <defs>
+                    <linearGradient id="colorUv" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stopColor="#FFFFFF" stopOpacity={0.4} />
+                        <stop offset="100%" stopColor="#FFFFFF" stopOpacity={0.7} />
+                    </linearGradient>
+                </defs>
                 <XAxis dataKey="day"
                 padding={{ left: 0, right: 0 }}
                 tickLine={false}
@@ -44,7 +50,7 @@ const AvgSessionChart = ({avgSessions} : props) => {
                 <Line 
                 type='natural' 
                 dataKey="sessionLength" 
-                stroke="#FF8484" /* !!! TODO LINEAR GRADIEN INSTEAD */
+                stroke="url(#colorUv)" /* !!! TODO LINEAR GRADIEN INSTEAD */
                 strokeWidth={2}
                 dot={false}
                 />

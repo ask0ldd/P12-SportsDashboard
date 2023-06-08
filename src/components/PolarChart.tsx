@@ -34,7 +34,7 @@ const CustomPositionTicks = (props: any) => {
       break;      
     }
     return (
-        <g transform={`translate(${props.x},${props.y})`}>
+      <g transform={`translate(${props.x},${props.y})`}>
         <text fontSize="10px" x={0} y={0} dx={dx} dy={dy} textAnchor="start" fill="#ffffff">
             {props.payload.value}
         </text>
