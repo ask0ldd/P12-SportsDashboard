@@ -22,13 +22,15 @@ const styleTitle = (value: string, entry: any) => {
 }
 
 const onMouseMove = (hoveredData : any) => { // any > needs better typing
+/*
     if (hoveredData && hoveredData.activePayload && sessionsDatas && sessionsDatas?.length > 0) {
         const hoveredX = hoveredData.activePayload[0].payload.day
         const index = sessionsDatas?.findIndex(d => d.day === hoveredX)
         const postTooltipBG = document.querySelector('#postTooltipBG')
         postTooltipBG?.setAttribute("x", index*(100/7) + 9 + "%")
-        postTooltipBG?.setAttribute("width", 100 - (index*(100/7) + 9) + "%") /* NEEDS TO BE RESPONSIVE */
+        postTooltipBG?.setAttribute("width", 100 - (index*(100/7) + 9) + "%") // NEEDS TO BE RESPONSIVE
     }
+*/
 }
 
 const onMouseOut = () => {
