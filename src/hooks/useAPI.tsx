@@ -14,10 +14,8 @@ function useAPI(userId : number){
 
     const [userDatas, setUserDatas] = useState<IMainDatas>()
     const [userActivity, setUserActivity] = useState<IUserActivity>()
-    const [userActivity, setUserActivity] = useState<IUserActivity>()
-    const [userActivity, setUserActivity] = useState<IUserActivity>()
-    userSession : IAverageSessions
-    userPerformances : IUserPerformances
+    const [averageSessions, setAverageSessions] = useState<IAverageSessions>()
+    const [userPerformances, setUserPerformances] = useState<IUserPerformances>()
 
     const fetchData = async (url : string) =>  {
         try{
@@ -38,7 +36,7 @@ function useAPI(userId : number){
 
     },[userId])
 
-    return {datas:datas, }
+    return {userDatas, userActivity, averageSessions, userPerformances}
 }
 
 export default useAPI
