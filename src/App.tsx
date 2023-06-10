@@ -13,13 +13,11 @@ import useAPI from './hooks/useAPI'
 
 function App() {
 
-  const userId = 18
+  const userId = 12
+  // const userId = 18
 
   const {mainDatas, userActivity, userSession, userPerformances, isLoading, isError} = useAPI(userId)
-
   const userDatas = mainDatas && userActivity && userSession && userPerformances && !isError ? new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances}) : new PerformanceModel(18)
-
-  // if(isLoading === false && isError === false) console.log(mainDatas)
 
   return (
     <div className="App">

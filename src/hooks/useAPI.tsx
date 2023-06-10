@@ -19,7 +19,7 @@ function useAPI(userId : number){
     const [isLoading, setLoading] = useState(true)
     const [isError, setError] = useState(false)
 
-    const fetchData = async (url : string) =>  {
+    const fetchDatas = async (url : string) =>  {
         try{
             const response = await fetch(url)
             const datas = await response.json()
@@ -33,10 +33,12 @@ function useAPI(userId : number){
         async function GetUserDatas(){
 
             setLoading(true)
-            const datas = await fetchData(baseUrl + userUrls.datas)
-            const activities = await fetchData(baseUrl + userUrls.activities)
-            const sessions = await fetchData(baseUrl + userUrls.avgSessions)
-            const perfs = await fetchData(baseUrl + userUrls.Performance)
+            setError(false)
+            const datas = await fetchDatas(baseUrl + userUrls.datas)
+            const activities = await fetchDatas(baseUrl + userUrls.activities)
+            const sessions = await fetchDatas(baseUrl + userUrls.avgSessions)
+            const perfs = await fetchDatas(baseUrl + userUrls.Performance)
+
             if(datas == null || activities == null || sessions == null || perfs == null){
                 setError(true)
                 setLoading(false)
