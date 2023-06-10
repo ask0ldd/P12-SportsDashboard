@@ -11,9 +11,10 @@ import PerformanceModel from './models/performancesModel'
 import { blankDailyActivities, blankNutridatas, blankSessions } from './mocks/blankDatas'
 
 function App() {
+  
   const userId = 18
 
-  const userDatas = new PerformanceModel(userId, 'mock')
+  const userDatas = new PerformanceModel(userId)
 
   return (
     <div className="App">

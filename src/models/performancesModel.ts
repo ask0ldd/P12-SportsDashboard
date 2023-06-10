@@ -8,9 +8,9 @@ class PerformanceModel {
     userSession : IAverageSessions
     userPerformances : IUserPerformances
 
-    constructor(userId : number, source: 'mock' | 'api'){
+    constructor(userId : number, datas?: {mainDatas : IMainDatas, userActivity : IUserActivity, userSession : IAverageSessions, userPerformances : IUserPerformances}){
         // tente de rapatrier toutes les données, si echec => mock
-        if(source === 'mock'){
+        if(datas == null){
             this.mainDatas = ([...USER_MAIN_DATA].filter((data : IMainDatas) => data.id === userId))[0]
             this.userActivity = ([...USER_ACTIVITY].filter((data : IUserActivity) => data.userId === userId))[0]
             this.userSession = ([...USER_AVERAGE_SESSIONS].filter((data : IAverageSessions) => data.userId === userId))[0]

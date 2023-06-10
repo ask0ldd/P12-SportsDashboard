@@ -16,6 +16,8 @@ function useAPI(userId : number){
     const [userActivity, setUserActivity] = useState<IUserActivity>()
     const [averageSessions, setAverageSessions] = useState<IAverageSessions>()
     const [userPerformances, setUserPerformances] = useState<IUserPerformances>()
+    const [isLoading, setLoading] = useState(true)
+    const [isError, setError] = useState(false)
 
     const fetchData = async (url : string) =>  {
         try{
@@ -27,16 +29,29 @@ function useAPI(userId : number){
         }
     }
 
-    useEffect(()=> {
+    useEffect(() => {
+        async function GetUserDatas(){
 
-        const datas = fetchData(baseUrl + userUrls.datas)
-        const activities = fetchData(baseUrl + userUrls.activities)
-        const avgSessions = fetchData(baseUrl + userUrls.avgSessions)
-        const performance = fetchData(baseUrl + userUrls.Performance)
+            const datas = await fetchData(baseUrl + userUrls.datas)
+            const activities = await fetchData(baseUrl + userUrls.activities)
+            const sessions = await fetchData(baseUrl + userUrls.avgSessions)
+            const perfs = await fetchData(baseUrl + userUrls.Performance)
+            if(datas == null || activities == null || sessions == null || perfs == null){
+                setError(true)
+            }
+            else{
+                setUserActivity(activities)
+                setAverageSessions(sessions)
+                setUserDatas(datas)
+                setUserPerformances(perfs)
+            }
+        }
+
+        GetUserDatas()
 
     },[userId])
 
-    return {userDatas, userActivity, averageSessions, userPerformances}
+    return {mainDatas : userDatas, userActivity : userActivity, userSession : averageSessions, userPerformances : userPerformances, isLoading, isError}
 }
 
 export default useAPI
