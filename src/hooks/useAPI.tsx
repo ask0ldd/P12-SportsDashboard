@@ -1,49 +1,46 @@
-function useAPI(user : number){
+import { useEffect, useState } from "react"
+import { IMainDatas, IUserActivity, IUserPerformances, IPerformance, IAverageSessions, ISession, INutridatas } from '../types/modelTypes'
 
-    const UserURIs = {
-        datas : `user/${user}`,
-        activities : `user/${user}/activity`,
-        avgSessions : `user/${user}/average-sessions`,
-        Performance : `user/${user}/performance`,
+function useAPI(userId : number){
+
+    const baseUrl = "http://localhost:3000/"
+
+    const userUrls = {
+        datas : `user/${userId}`,
+        activities : `user/${userId}/activity`,
+        avgSessions : `user/${userId}/average-sessions`,
+        Performance : `user/${userId}/performance`,
     }
 
+    const [userDatas, setUserDatas] = useState<IMainDatas>()
+    const [userActivity, setUserActivity] = useState<IUserActivity>()
+    const [userActivity, setUserActivity] = useState<IUserActivity>()
+    const [userActivity, setUserActivity] = useState<IUserActivity>()
+    userSession : IAverageSessions
+    userPerformances : IUserPerformances
+
+    const fetchData = async (url : string) =>  {
+        try{
+            const response = await fetch(url)
+            const datas = await response.json()
+            return datas
+        }catch(error){
+            console.error(error)
+        }
+    }
+
+    useEffect(()=> {
+
+        const datas = fetchData(baseUrl + userUrls.datas)
+        const activities = fetchData(baseUrl + userUrls.activities)
+        const avgSessions = fetchData(baseUrl + userUrls.avgSessions)
+        const performance = fetchData(baseUrl + userUrls.Performance)
+
+    },[userId])
+
+    return {datas:datas, }
 }
 
 export default useAPI
-
-export interface IUserDatas{
-    mainDatas: IUserMainDatas
-    performance: Array<IPerformanceDatas>
-    activity: Array<ISessionActivity>
-    avgSessions : Array<ISessionAvgLength>
-}
-
-interface IPerformanceDatas{
-    value: number
-    kind: string
-}
-
-interface IUserMainDatas{
-    id: number
-    firstname: string
-    lastname: string
-    age: number
-    todayScore: number
-    caloriesCount: number
-    proteinCount: number
-    carbohydrateCount: number
-    lipidCount: number
-}
-
-interface ISessionActivity{
-    day: string
-    kilogram: number
-    calories: number
-}
-
-interface ISessionAvgLength{
-    day: number
-    sessionLength: number
-}
 
 /* performance {value: 100, kind:'cardio'} */

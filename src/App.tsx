@@ -13,7 +13,7 @@ import { blankDailyActivities, blankNutridatas, blankSessions } from './mocks/bl
 function App() {
   const userId = 18
 
-  const userDatas = new PerformanceModel(userId)
+  const userDatas = new PerformanceModel(userId, 'mock')
 
   return (
     <div className="App">

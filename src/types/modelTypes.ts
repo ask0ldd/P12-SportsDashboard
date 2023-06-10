@@ -2,65 +2,65 @@
 /* mainDatas interface */
 /* */
 
-export interface userinfos {
+export interface IUserinfos {
     firstName : string
     lastName : string
     age : number
 }
 
-export interface nutridatas {
+export interface INutridatas {
     calorieCount: number
     proteinCount: number
     carbohydrateCount: number
     lipidCount: number
 }
 
-export interface mainDatas {
+export interface IMainDatas {
     id: number
-    userInfos: userinfos
+    userInfos: IUserinfos
     todayScore?: number
     score?: number
-    keyData: nutridatas
+    keyData: INutridatas
 }
 
 /* */
 /* userActivity interface */
 /* */
-export interface session {
+export interface ISession {
     day : string
     kilogram : number
     calories : number
 }
 
-export interface userActivity {
+export interface IUserActivity {
     userId : number
-    sessions : Array<session>
+    sessions : Array<ISession>
 }
 
 /* */
 /* averageSessions interface */
 /* */
 
-export interface sessionAvg {
+export interface ISessionAvg {
     day : number
     sessionLength : number
 }
 
-export interface averageSessions {
+export interface IAverageSessions {
     userId : number
-    sessions : Array<sessionAvg>
+    sessions : Array<ISessionAvg>
 }
 
 /* */
 /* userPerformances interface */
 /* */
 
-export interface performance {
+export interface IPerformance {
     value:number
     kind:any
 }
 
-export interface kind {
+export interface IKind {
     1: string
     2: string
     3: string
@@ -69,8 +69,8 @@ export interface kind {
     6: string
 }
 
-export interface userPerformances {
+export interface IUserPerformances {
     userId : number
-    kind : kind
-    data : Array<performance>
+    kind : IKind
+    data : Array<IPerformance>
 }

@@ -1,18 +1,26 @@
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../mocks/datas'
-import { mainDatas, userActivity, userPerformances, performance, averageSessions, session, nutridatas } from '../types/modelTypes'
+import { IMainDatas, IUserActivity, IUserPerformances, IPerformance, IAverageSessions, ISession, INutridatas } from '../types/modelTypes'
 
 class PerformanceModel {
 
-    mainDatas : mainDatas
-    userActivity : userActivity
-    userSession : averageSessions
-    userPerformances : userPerformances
+    mainDatas : IMainDatas
+    userActivity : IUserActivity
+    userSession : IAverageSessions
+    userPerformances : IUserPerformances
 
-    constructor(userId : number){
-        this.mainDatas = (USER_MAIN_DATA.filter((data : mainDatas) => data.id === userId))[0]
-        this.userActivity = (USER_ACTIVITY.filter((data : userActivity) => data.userId === userId))[0]
-        this.userSession = (USER_AVERAGE_SESSIONS.filter((data : averageSessions) => data.userId === userId))[0]
-        this.userPerformances = (USER_PERFORMANCE.filter((data : userPerformances) => data.userId === userId))[0]
+    constructor(userId : number, source: 'mock' | 'api'){
+        // tente de rapatrier toutes les données, si echec => mock
+        if(source === 'mock'){
+            this.mainDatas = ([...USER_MAIN_DATA].filter((data : IMainDatas) => data.id === userId))[0]
+            this.userActivity = ([...USER_ACTIVITY].filter((data : IUserActivity) => data.userId === userId))[0]
+            this.userSession = ([...USER_AVERAGE_SESSIONS].filter((data : IAverageSessions) => data.userId === userId))[0]
+            this.userPerformances = ([...USER_PERFORMANCE].filter((data : IUserPerformances) => data.userId === userId))[0]
+        }else{
+            this.mainDatas = ([...USER_MAIN_DATA].filter((data : IMainDatas) => data.id === userId))[0]
+            this.userActivity = ([...USER_ACTIVITY].filter((data : IUserActivity) => data.userId === userId))[0]
+            this.userSession = ([...USER_AVERAGE_SESSIONS].filter((data : IAverageSessions) => data.userId === userId))[0]
+            this.userPerformances = ([...USER_PERFORMANCE].filter((data : IUserPerformances) => data.userId === userId))[0]
+        }
     }
 
     get score() {
@@ -27,7 +35,7 @@ class PerformanceModel {
     }
 
     get nutriDatas() {
-        const nutriDatas : nutridatas = this.mainDatas.keyData
+        const nutriDatas : INutridatas = this.mainDatas.keyData
         return nutriDatas
     }
 
@@ -40,8 +48,8 @@ class PerformanceModel {
 
     get dailyDatas (){
         // sorting by date as a security
-        const sessions : Array<session> = [...this.userActivity.sessions]
-        sessions.sort(function (a : session, b : session){
+        const sessions : Array<ISession> = [...this.userActivity.sessions]
+        sessions.sort(function (a : ISession, b : ISession){
             if(new Date(a.day) > new Date(b.day)) return 1
             if(new Date(a.day) < new Date(b.day)) return -1
             return 0
@@ -50,11 +58,11 @@ class PerformanceModel {
     }
 
     get performanceDatas (){ // gerer si données incorrectes
-        const perfs : Array<performance> = [...this.userPerformances.data]
+        const perfs : Array<IPerformance> = [...this.userPerformances.data]
         // {1: 'cardio', ... , 6: 'intensity'} => ['cardio', ... , 'intensity']
         const translations : Dico = {cardio : 'cardio', energy : 'energie', endurance : 'endurance', strength : 'force', speed : 'vitesse', intensity : 'intensité'}
         const perfKind : Array<string> = Object.values(this.userPerformances.kind)
-        const formatedPerfs = perfs.map((perf : performance) => {
+        const formatedPerfs = perfs.map((perf : IPerformance) => {
             return {value : perf.value, kind : translations[perfKind[perf.kind-1] as keyof Dico]}
         })
         // needs to be displayed in a reversed order
