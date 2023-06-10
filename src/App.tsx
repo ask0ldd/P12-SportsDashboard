@@ -9,12 +9,17 @@ import PolarChart from './components/PolarChart'
 import ScoreChart from './components/ScoreChart'
 import PerformanceModel from './models/performancesModel'
 import { blankDailyActivities, blankNutridatas, blankSessions } from './mocks/blankDatas'
+import useAPI from './hooks/useAPI'
 
 function App() {
-  
+
   const userId = 18
 
-  const userDatas = new PerformanceModel(userId)
+  const {mainDatas, userActivity, userSession, userPerformances, isLoading, isError} = useAPI(userId)
+
+  const userDatas = mainDatas && userActivity && userSession && userPerformances && !isError ? new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances}) : new PerformanceModel(18)
+
+  console.log(mainDatas)
 
   return (
     <div className="App">
