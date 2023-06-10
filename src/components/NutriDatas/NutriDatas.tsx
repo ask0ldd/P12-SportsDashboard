@@ -1,9 +1,9 @@
 import '../../styles/NutriDatas.css'
 import NutriArticle from './NutriArticle'
-import { nutridatas } from '../../types/modelTypes'
+import { INutridatas } from '../../types/modelTypes'
 
 interface props {
-    nutriDatas : nutridatas
+    nutriDatas : INutridatas
 }
 
 const NutriDatas = ({nutriDatas} : props) => {

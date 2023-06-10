@@ -23,7 +23,7 @@ function useAPI(userId : number){
         try{
             const response = await fetch(url)
             const datas = await response.json()
-            return datas
+            return datas.data
         }catch(error){
             console.error(error)
         }
@@ -32,18 +32,25 @@ function useAPI(userId : number){
     useEffect(() => {
         async function GetUserDatas(){
 
+            setLoading(true)
             const datas = await fetchData(baseUrl + userUrls.datas)
             const activities = await fetchData(baseUrl + userUrls.activities)
             const sessions = await fetchData(baseUrl + userUrls.avgSessions)
             const perfs = await fetchData(baseUrl + userUrls.Performance)
             if(datas == null || activities == null || sessions == null || perfs == null){
                 setError(true)
+                setLoading(false)
             }
             else{
-                setUserActivity(activities)
-                setAverageSessions(sessions)
                 setUserDatas(datas)
+                console.log(datas)
+                setUserActivity(activities)
+                console.log(activities)
+                setAverageSessions(sessions)
+                console.log(sessions)
                 setUserPerformances(perfs)
+                console.log(perfs)
+                setLoading(false)
             }
         }
 

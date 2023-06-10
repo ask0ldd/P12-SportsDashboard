@@ -17,9 +17,9 @@ class PerformanceModel {
             this.userPerformances = ([...USER_PERFORMANCE].filter((data : IUserPerformances) => data.userId === userId))[0]
         }else{
             this.mainDatas = datas.mainDatas
-            this.userActivity = ([...USER_ACTIVITY].filter((data : IUserActivity) => data.userId === userId))[0]
-            this.userSession = ([...USER_AVERAGE_SESSIONS].filter((data : IAverageSessions) => data.userId === userId))[0]
-            this.userPerformances = ([...USER_PERFORMANCE].filter((data : IUserPerformances) => data.userId === userId))[0]
+            this.userActivity = datas.userActivity
+            this.userSession = datas.userSession
+            this.userPerformances = datas.userPerformances
         }
     }
 

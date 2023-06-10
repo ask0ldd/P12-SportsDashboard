@@ -19,7 +19,7 @@ function App() {
 
   const userDatas = mainDatas && userActivity && userSession && userPerformances && !isError ? new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances}) : new PerformanceModel(18)
 
-  console.log(mainDatas)
+  // if(isLoading === false && isError === false) console.log(mainDatas)
 
   return (
     <div className="App">
