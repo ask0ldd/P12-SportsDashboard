@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { IMainDatas, IUserActivity, IUserPerformances, IPerformance, IAverageSessions, ISession, INutridatas } from '../types/modelTypes'
+import { IMainDatas, IUserActivity, IUserPerformances, IPerformance, IAverageSessions } from '../types/modelTypes'
 
 function useAPI(userId : number){
 
@@ -64,5 +64,3 @@ function useAPI(userId : number){
 }
 
 export default useAPI
-
-/* performance {value: 100, kind:'cardio'} */

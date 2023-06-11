@@ -21,24 +21,22 @@ const styleTitle = (value: string, entry: any) => {
     return (<div style={{fontSize:"15px", color:"#FF8484", marginTop:"-24px"}}>{twoPartsSentence[0]}<br/>{twoPartsSentence[1]}</div>)
 }
 
-const onMouseMove = (hoveredData : any) => { // any > needs better typing
-/*
-    if (hoveredData && hoveredData.activePayload && sessionsDatas && sessionsDatas?.length > 0) {
-        const hoveredX = hoveredData.activePayload[0].payload.day
-        const index = sessionsDatas?.findIndex(d => d.day === hoveredX)
-        const postTooltipBG = document.querySelector('#postTooltipBG')
-        postTooltipBG?.setAttribute("x", index*(100/7) + 9 + "%")
-        postTooltipBG?.setAttribute("width", 100 - (index*(100/7) + 9) + "%") // NEEDS TO BE RESPONSIVE
-    }
-*/
-}
-
-const onMouseOut = () => {
-    const postTooltipBG = document.querySelector('#postTooltipBG')
-    postTooltipBG?.setAttribute("width", "0%")
-}
-
 const AvgSessionChart = ({avgSessions} : props) => {
+
+    const onMouseMove = (hoveredData : any) => { // any > needs better typing
+
+        if (hoveredData && hoveredData.activePayload && avgSessions && avgSessions?.length > 0) {
+            const x = hoveredData.activeCoordinate.x
+            const postTooltipBG = document.querySelector('#postTooltipBG')
+            postTooltipBG?.setAttribute("x", x+'px') // x coordinates of the active tick on the x axis
+            postTooltipBG?.setAttribute("width", `calc(100% - ${x}px)`) // length = 100% - part from the start to the active tick on the x axis
+        }
+    }
+    
+    const onMouseOut = () => {
+        const postTooltipBG = document.querySelector('#postTooltipBG')
+        postTooltipBG?.setAttribute("width", "0%")
+    }
 
     return(
         /* 99% and fixed height or difficulties to resize with parent */ /* Soutenance : Gradient */

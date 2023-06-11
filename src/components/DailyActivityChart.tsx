@@ -1,9 +1,9 @@
 import '../styles/DailyActivityChart.css'
 import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Bar, Tooltip, Legend } from 'recharts'
-import { session } from '../types/modelTypes'
+import { ISession } from '../types/modelTypes'
 
 interface props {
-    dailyDatas : Array<session>
+    dailyDatas : Array<ISession>
 }
 
 const CustomXAxisTick = (value : number, index:number) : string => {
