@@ -2,10 +2,10 @@ import { useState, useEffect } from "react"
 import {USER_PERFORMANCE} from '../mocks/datas'
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend, Tooltip} from "recharts"
 import "../styles/PolarChart.css"
-import { performance } from "../types/modelTypes"
+import { IPerformance } from "../types/modelTypes"
 
 interface props {
-    perfDatas : Array<performance>
+    perfDatas : Array<IPerformance>
 }
 
 const customEnduranceTick = (value : any) => {

@@ -1,13 +1,9 @@
 import '../styles/AvgSessionChart.css'
 import { ResponsiveContainer, LineChart, XAxis, YAxis, Line, Legend, Tooltip } from 'recharts'
-
-interface session {
-    day: string
-    sessionLength: number
-}
+import { ISessionAvg } from '../types/modelTypes'
 
 interface props {
-    avgSessions : Array<session>
+    avgSessions : Array<ISessionAvg>
 }
 
 const CustomTooltip = ({payload} : any) => {
