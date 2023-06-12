@@ -73,3 +73,30 @@ export const blankDailyActivities = [
         calories: 0
     }
 ]
+
+export const blankPerformances = [
+    {
+        value: 0,
+        kind: 'intensité'
+    },
+    {
+        value: 0,
+        kind: 'vitesse'
+    },
+    {
+        value: 0,
+        kind: 'force'
+    },
+    {
+        value: 0,
+        kind: 'endurance'
+    },
+    {
+        value: 0,
+        kind: 'energie'
+    },
+    {
+        value: 0,
+        kind: 'cardio'
+    }
+]

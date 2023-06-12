@@ -8,7 +8,7 @@ import AvgSessionChart from './components/AvgSessionChart'
 import PolarChart from './components/PolarChart'
 import ScoreChart from './components/ScoreChart'
 import PerformanceModel from './models/performancesModel'
-import { blankDailyActivities, blankNutridatas, blankSessions } from './mocks/blankDatas'
+import { blankDailyActivities, blankNutridatas, blankPerformances, blankSessions } from './mocks/blankDatas'
 import useAPI from './hooks/useAPI'
 
 function App() {
@@ -17,7 +17,9 @@ function App() {
   // const userId = 18
 
   const {mainDatas, userActivity, userSession, userPerformances, isLoading, isError} = useAPI(userId)
-  const userDatas = mainDatas && userActivity && userSession && userPerformances && !isError ? new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances}) : new PerformanceModel(18)
+  // const userDatas = mainDatas && userActivity && userSession && userPerformances && !isError ? new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances}) : new PerformanceModel(18)
+  let userDatas
+  if(mainDatas && userActivity && userSession && userPerformances) userDatas = new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances})
 
   return (
     <div className="App">
@@ -25,17 +27,17 @@ function App() {
       <main>
         <VerticalMenu/>
         <section className='main-section'>
-          <Greetings firstname={userDatas.firstName ? userDatas.firstName : 'N/A'}/>
+          <Greetings firstname={userDatas?.firstName ? userDatas.firstName : 'N/A'}/>
           <div className='graphsnNutriDatas-container'>
             <div className='graphs-container'>
-              <DailyActivityChart dailyDatas={userDatas.dailyDatas ? userDatas.dailyDatas : blankDailyActivities}/>
+              <DailyActivityChart dailyDatas={userDatas?.dailyDatas ? userDatas.dailyDatas : blankDailyActivities}/>
               <div className='graphsquares-container'>
-                <AvgSessionChart avgSessions={userDatas.avgSessions ? userDatas.avgSessions : blankSessions}/>
-                <PolarChart perfDatas={userDatas.performanceDatas}/>
-                <ScoreChart score={userDatas.score ? userDatas.score : 0}/>{/**/}
+                <AvgSessionChart avgSessions={userDatas?.avgSessions ? userDatas.avgSessions : blankSessions}/>
+                <PolarChart perfDatas={userDatas?.performanceDatas ? userDatas.performanceDatas : blankPerformances}/>
+                <ScoreChart score={userDatas?.score ? userDatas.score : 0}/>{/**/}
               </div>
             </div>
-            <NutriDatas nutriDatas={userDatas.nutriDatas ? userDatas.nutriDatas : blankNutridatas}/>
+            {userDatas?.nutriDatas && <NutriDatas nutriDatas={userDatas.nutriDatas ? userDatas.nutriDatas : blankNutridatas}/>}
           </div>
         </section>
       </main>
