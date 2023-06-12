@@ -22,10 +22,11 @@ const styleTitle = (value: string, entry: any) => {
 /**
  * Component showing the average session chart for a specific user.
  * @Component
- * @param  {Array<ISessionAvgDayString>} avgSessions Sessions duration in by week day
+ * @param {Object[]} avgSessions - Training sessions day by day.
+ * @param {string} avgSessions[].day - The day of the week.
+ * @param {number} avgSessions[].sessionLength - Length of the training session.
  * @return ( <AvgSessionChart avgSessions={avgSessions}/> )
  */
-
 const AvgSessionChart = ({avgSessions} : props) => {
 
     const onMouseMove = (hoveredData : any) => { // any > needs better typing

@@ -25,6 +25,14 @@ const CustomTooltip = ({payload} : any) => {
     }
 }
 
+/**
+ * Component showing the average session chart for a specific user.
+ * @Component
+ * @param {Object[]} dailydatas - Training sessions day by day.
+ * @param {string} dailydatas[].day - The day of the week.
+ * @param {number} dailydatas[].sessionLength - Length of the training session.
+ * @return ( <AvgSessionChart avgSessions={avgSessions}/> )
+ */
 const DailyActivityChart = ({dailyDatas} : props) => {
 
     return(
