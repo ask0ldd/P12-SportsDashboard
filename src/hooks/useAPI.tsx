@@ -45,13 +45,13 @@ function useAPI(userId : number){
             }
             else{
                 setUserDatas(datas)
-                console.log(datas)
+                // console.log(datas)
                 setUserActivity(activities)
-                console.log(activities)
+                // console.log(activities)
                 setAverageSessions(sessions)
-                console.log(sessions)
+                // console.log(sessions)
                 setUserPerformances(perfs)
-                console.log(perfs)
+                // console.log(perfs)
                 setLoading(false)
             }
         }
