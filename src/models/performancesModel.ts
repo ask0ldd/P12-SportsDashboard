@@ -40,10 +40,10 @@ class PerformanceModel {
     }
 
     get avgSessions() {
-        if(typeof(this.userSession.sessions[0].day) === 'string') return this.userSession.sessions
+        // !!!! creer un new type complementaire avgsession avec des days strings a la place des numbers
         const week : Array<string> = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
         // day : 1 - day : 6 to day : L - day : D
-        const formatedSessions = this.userSession.sessions.map(session => {return ({ day : week[session.day-1], sessionLength : session.sessionLength })})
+        const formatedSessions = this.userSession.sessions.map(session => {return ({ day : week[typeof(session.day) === 'number' ? session.day-1 : 0], sessionLength : session.sessionLength })})
         return formatedSessions
     }
 
