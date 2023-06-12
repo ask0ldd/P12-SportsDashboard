@@ -40,6 +40,7 @@ class PerformanceModel {
     }
 
     get avgSessions() {
+        if(typeof(this.userSession.sessions[0].day) === 'string') return this.userSession.sessions
         const week : Array<string> = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
         // day : 1 - day : 6 to day : L - day : D
         const formatedSessions = this.userSession.sessions.map(session => {return ({ day : week[session.day-1], sessionLength : session.sessionLength })})

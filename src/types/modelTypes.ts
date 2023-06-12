@@ -42,7 +42,7 @@ export interface IUserActivity {
 /* */
 
 export interface ISessionAvg {
-    day : number
+    day : number | string
     sessionLength : number
 }
 

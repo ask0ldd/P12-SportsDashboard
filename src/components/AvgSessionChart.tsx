@@ -1,6 +1,6 @@
 import '../styles/AvgSessionChart.css'
 import { ResponsiveContainer, LineChart, XAxis, YAxis, Line, Legend, Tooltip } from 'recharts'
-import { ISessionAvg } from '../types/modelTypes'
+import { ISessionAvg, ISession } from '../types/modelTypes'
 
 interface props {
     avgSessions : Array<ISessionAvg>
@@ -16,6 +16,16 @@ const styleTitle = (value: string, entry: any) => {
     const twoPartsSentence = value.split('<br>')
     return (<div style={{fontSize:"15px", color:"#FF8484", marginTop:"-24px"}}>{twoPartsSentence[0]}<br/>{twoPartsSentence[1]}</div>)
 }
+
+/**
+ * Component showing the average session stats of the user.
+ * 
+ * const age = 21
+ * const name = 'Jitendra Nirnejak'
+ * return (
+ *   <User age={age} name={name} />
+ * )
+ */
 
 const AvgSessionChart = ({avgSessions} : props) => {
 
