@@ -26,12 +26,13 @@ const CustomTooltip = ({payload} : any) => {
 }
 
 /**
- * Component showing the average session chart for a specific user.
+ * Component the evolution of the weight and the calories consumption of the user.
  * @Component
  * @param {Object[]} dailydatas - Training sessions day by day.
  * @param {string} dailydatas[].day - The day of the week.
- * @param {number} dailydatas[].sessionLength - Length of the training session.
- * @return ( <AvgSessionChart avgSessions={avgSessions}/> )
+ * @param {number} dailydatas[].kilogram - Weight of the day.
+ * @param {number} dailydatas[].calories - Number of calories ingested on this day.
+ * @return ( <DailyActivityChart dailyDatas={dailyDatas}/> )
  */
 const DailyActivityChart = ({dailyDatas} : props) => {
 
