@@ -20,13 +20,10 @@ const styleTitle = (value: string, entry: any) => {
 }
 
 /**
- * Component showing the average session stats of the user.
- * 
- * const age = 21
- * const name = 'Jitendra Nirnejak'
- * return (
- *   <User age={age} name={name} />
- * )
+ * Component showing the average session chart for a specific user.
+ * @Component
+ * @param  {Array<ISessionAvgDayString>} avgSessions Sessions duration in by week day
+ * @return ( <AvgSessionChart avgSessions={avgSessions}/> )
  */
 
 const AvgSessionChart = ({avgSessions} : props) => {
