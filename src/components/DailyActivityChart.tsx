@@ -6,14 +6,39 @@ interface props {
     dailyDatas : Array<ISession>
 }
 
+/**
+ * Component : Polarcharts custom endurance tick.
+ * @Component
+ * @param {Object[]} props - Props.
+ * @param {Object[]} props.payload - Payload object.
+ * @param {string} props.payload.value - Type of activity.
+ * @return ( <CustomEnduranceTicks/> )
+ */
 const CustomXAxisTick = (value : number, index:number) : string => {
     return (value+1).toString()
 }
 
-const resizedLegendValue = (value: string, entry: any) => {
+/**
+ * Component : Polarcharts custom endurance tick.
+ * @Component
+ * @param {string} value - Props.
+ * @param {any} entry - Payload object.
+ * @return ( <resizedLegendValue/> )
+ */
+const resizedLegendValue = (value: string, entry: any) => { // improve typing any
     return <span style={{fontSize:"14px", color:"#74798C", marginLeft:"8px"}}>{value}</span>
 }
 
+/**
+ * Component : Barchart custom weight / calorie consumption tick.
+ * @Component
+ * @param {Object[]} props - Props.
+ * @param {Object[]} props.payload - Payload object.
+ * @param {string[]} props.payload.value
+ * @param {string} props.payload[0].value - weight
+ * @param {string} props.payload[1].value - calorie consumption
+ * @return ( <CustomTooltip/> )
+ */
 const CustomTooltip = ({payload} : any) => {
     if(payload && payload.length){
         return(

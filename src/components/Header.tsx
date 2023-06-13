@@ -1,5 +1,10 @@
 import '../styles/Header.css'
 
+/**
+ * Component : Page Header.
+ * @Component
+ * @return ( <Header/> )
+ */
 const Header = () => {
     return(
         <header>
