@@ -40,6 +40,14 @@ const CustomPositionTicks = (props: any) => {
     )
 }
 
+/**
+ * Component showing the performance of the user as a polar chart.
+ * @Component
+ * @param {Object[]} perfDatas - Performances.
+ * @param {string} perfDatas[].kind - Performance type.
+ * @param {number} perfDatas[].value - Parformance value.
+ * @return ( <PolarChart perfDatas={performanceDatas}/> )
+ */
 const PolarChart = ({perfDatas} : props) => {
 
     return(

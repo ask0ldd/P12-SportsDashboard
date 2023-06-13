@@ -26,12 +26,12 @@ const CustomTooltip = ({payload} : any) => {
 }
 
 /**
- * Component the evolution of the weight and the calories consumption of the user.
+ * Component showing the evolution of the weight of the user and its calories consumption.
  * @Component
  * @param {Object[]} dailydatas - Training sessions day by day.
  * @param {string} dailydatas[].day - The day of the week.
- * @param {number} dailydatas[].kilogram - Weight of the day.
- * @param {number} dailydatas[].calories - Number of calories ingested on this day.
+ * @param {number} dailydatas[].kilogram - User's weight of the day.
+ * @param {number} dailydatas[].calories - Number of calories ingested.
  * @return ( <DailyActivityChart dailyDatas={dailyDatas}/> )
  */
 const DailyActivityChart = ({dailyDatas} : props) => {

@@ -5,6 +5,12 @@ interface props {
     score : number
 }
 
+/**
+ * Component displaying the score of the user.
+ * @Component
+ * @param {number} score - Performances.
+ * @return ( <ScoreChart score={score}/> )
+ */
 const ScoreChart = ({score} : props) => {
 
     const datas = [{ score : score, fill: '#E60000' }] // fill as to be passed in the datas to set the color of the radialbar
