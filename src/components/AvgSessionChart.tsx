@@ -41,6 +41,9 @@ const styleTitle = (value: string/*, entry: any*/) => {
  */
 const AvgSessionChart = ({avgSessions} : props) => {
 
+    const postTooltipBG = document.querySelector('#postTooltipBG')
+    postTooltipBG?.setAttribute("width", "0%")
+
     const onMouseMove = (hoveredData : any) => { // any > needs better typing
 
         if (hoveredData && hoveredData.activePayload && avgSessions && avgSessions?.length > 0) {
@@ -71,7 +74,7 @@ const AvgSessionChart = ({avgSessions} : props) => {
                         <stop offset="100%" stopColor="#FFFFFF" stopOpacity={0.7} />
                     </linearGradient>
                 </defs>
-                <rect id="postTooltipBG" x="9%" width="14%" height="100%" opacity="0.2" /* DARK BG AFTER TOOLTIP */
+                <rect id="postTooltipBG" x="9%" width="0%" height="100%" opacity="0.2" /* DARK BG AFTER TOOLTIP */
                 />
                 <XAxis dataKey="day"
                 padding={{ left: 0, right: 0 }}
@@ -92,6 +95,7 @@ const AvgSessionChart = ({avgSessions} : props) => {
                 dot={false}
                 />
                 <Tooltip
+                cursor={false}
                 wrapperStyle={{outline:'none', border:'none'}}
                 itemStyle={{color:'#000', fontSize:'10px'}}
                 labelStyle={{color:'#000',display:'none'}}
