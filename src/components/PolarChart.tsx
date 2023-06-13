@@ -6,12 +6,28 @@ interface props {
     perfDatas : Array<IPerformance>
 }
 
-const customEnduranceTick = (value : any) => {
+/**
+ * Component : Polarcharts custom endurance tick.
+ * @Component
+ * @param {Object[]} props - Props.
+ * @param {Object[]} props.payload - Payload object.
+ * @param {string} props.payload.value - Type of activity.
+ * @return ( <CustomEnduranceTicks/> )
+ */
+const customEnduranceTick = (value : string) => {
     if(value!=="Endurance") return value
     return (<div><br/>{value as string}</div>)
 }
 
-const CustomPositionTicks = (props: any) => {
+/**
+ * Component : Polarcharts custom position tick.
+ * @Component
+ * @param {Object[]} props - Props.
+ * @param {Object[]} props.payload - Performance type.
+ * @param {string} props.payload.value - Type of activity.
+ * @return ( <CustomPositionTicks/> )
+ */
+const CustomPositionTicks = (props: any) => { // improve props typing
     let dx = 0
     let dy = 0
     switch(props.payload.value){
@@ -41,7 +57,7 @@ const CustomPositionTicks = (props: any) => {
 }
 
 /**
- * Component showing the performance of the user as a polar chart.
+ * Component : User's performances as a polar chart.
  * @Component
  * @param {Object[]} perfDatas - Performances.
  * @param {string} perfDatas[].kind - Performance type.
