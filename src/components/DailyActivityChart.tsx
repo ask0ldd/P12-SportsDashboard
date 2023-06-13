@@ -12,20 +12,19 @@ interface props {
  * @param {Object[]} props - Props.
  * @param {Object[]} props.payload - Payload object.
  * @param {string} props.payload.value - Type of activity.
- * @return ( <CustomEnduranceTicks/> )
+ * @return ( <CustomXAxisTick/> )
  */
 const CustomXAxisTick = (value : number, index:number) : string => {
     return (value+1).toString()
 }
 
 /**
- * Component : Polarcharts custom endurance tick.
+ * Component : Barchart Legend Formatter.
  * @Component
  * @param {string} value - Props.
- * @param {any} entry - Payload object.
  * @return ( <resizedLegendValue/> )
  */
-const resizedLegendValue = (value: string, entry: any) => { // improve typing any
+const resizedLegendValue = (value: string/*, entry: any*/) => {
     return <span style={{fontSize:"14px", color:"#74798C", marginLeft:"8px"}}>{value}</span>
 }
 

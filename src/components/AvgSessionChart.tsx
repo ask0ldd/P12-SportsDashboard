@@ -6,15 +6,27 @@ interface props {
     avgSessions : Array<ISessionAvgDayString>
 }
 
-
-
+/**
+ * Component : LineChart custom training session duration tooltip.
+ * @Component
+ * @param {Object[]} props - Props.
+ * @param {Object[]} props.payload - Payload object.
+ * @param {number} props.payload[0].value - Training session duration.
+ * @return ( <CustomTooltip/> )
+ */
 const CustomTooltip = ({payload} : any) => {
     if (payload && payload.length) {
         return (<div style={{backgroundColor:'#fff', color:'#000000', fontSize:'10px', padding:'4px 8px'}}>{payload[0].value} min</div>)
     }
 }
 
-const styleTitle = (value: string, entry: any) => {
+/**
+ * Component : Barchart Title Formatter.
+ * @Component
+ * @param {string} value - Props.
+ * @return ( <styleTitle/> )
+ */
+const styleTitle = (value: string/*, entry: any*/) => {
     const twoPartsSentence = value.split('<br>')
     return (<div style={{fontSize:"15px", color:"#FF8484", marginTop:"-24px"}}>{twoPartsSentence[0]}<br/>{twoPartsSentence[1]}</div>)
 }

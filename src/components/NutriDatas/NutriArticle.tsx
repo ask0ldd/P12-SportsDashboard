@@ -11,10 +11,11 @@ interface props {
 /**
  * Component showing the quantity ingested of a specific nutrient.
  * @Component
- * @param {string} iconUrl - Url of the nutrient icon.
- * @param {string} iconBg - Color of the background behind this icon.
- * @param {number} nutriValue - Quantity ingested.
- * @param {string} nutriUnit - Quantity related unit.
+ * @param {Object[]} props - Props.
+ * @param {string} props.iconUrl - Url of the nutrient icon.
+ * @param {string} props.iconBg - Color of the background behind this icon.
+ * @param {number} props.nutriValue - Quantity ingested.
+ * @param {string} props.nutriUnit - Quantity related unit.
  * @return ( <NutriArticle iconUrl={iconUrl} iconBg={iconBg} nutriValue={nutriValue} nutriUnit={nutriUnit}/> )
  */
 const NutriArticle = ({iconUrl, iconBg, nutriValue, nutriUnit} : props) => {
