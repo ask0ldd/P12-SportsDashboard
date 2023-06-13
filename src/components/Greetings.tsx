@@ -4,6 +4,12 @@ interface props {
     firstname : string | undefined
 }
 
+/**
+ * Component displaying some greeting tailored for the user.
+ * @Component
+ * @param {string} firstname - user's firstname.
+ * @return ( <Greetings firstname={firstname}/> )
+ */
 const Greetings = ({firstname}:props) => {
     return(
         <div className="greetingsContainer">
