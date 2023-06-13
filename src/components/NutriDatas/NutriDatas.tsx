@@ -6,6 +6,16 @@ interface props {
     nutriDatas : INutridatas
 }
 
+/**
+ * Component acting as a container, hosting the nutriarticles.
+ * @Component
+ * @param {Object[]} nutriDatas - Nutrients ingested, with their quantities.
+ * @param {number} nutriDatas.calorieCount - Number of calories ingested.
+ * @param {number} nutriDatas.proteinCount - Number of proteins ingested.
+ * @param {number} nutriDatas.carbohydrateCount - Number of carbohydrates ingested.
+ * @param {number} nutriDatas.lipidCount - Number of lipids ingested.
+ * @return ( <NutriArticle iconUrl={iconUrl} iconBg={iconBg} nutriValue={nutriValue} nutriUnit={nutriUnit}/> )
+ */
 const NutriDatas = ({nutriDatas} : props) => {
 
     return(

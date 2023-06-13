@@ -7,6 +7,7 @@ interface props {
     nutriUnit : string
 }
 
+// !!! needs to be updated
 /**
  * Component showing the quantity ingested of a specific nutrient.
  * @Component
