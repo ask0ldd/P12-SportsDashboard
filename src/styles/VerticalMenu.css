@@ -24,3 +24,9 @@
   font-size: 12px;
   line-height: 24px;
 }
+
+@media (max-width: 1330px) {
+  .vertical-container {
+    width: 80px;
+  }
+}

@@ -25,7 +25,7 @@ function useAPI(userId : number){
             const datas = await response.json()
             return datas.data
         }catch(error){
-            console.error(error)
+            console.log(error)
         }
     }
 

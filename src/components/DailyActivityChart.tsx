@@ -81,7 +81,7 @@ const DailyActivityChart = ({dailyDatas} : props) => {
                     cursor={{opacity:0.5}} /* grey active bar hover */
                     />
                     <text x={12} y={30} fill="#20253A" textAnchor="middle" dominantBaseline="central"> {/* titre graph */}
-                        <tspan x="62" dy="0" fontSize="14">Activité quotidienne</tspan>
+                        <tspan x="62" dy="0" fontSize="14" fontWeight={600}>Activité quotidienne</tspan>
                     </text>
                     <CartesianGrid 
                     strokeDasharray="2 2"

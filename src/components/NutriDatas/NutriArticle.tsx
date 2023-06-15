@@ -15,7 +15,7 @@ interface props {
  * @param {Object[]} props - Props.
  * @param {string} props.iconUrl - Url of the nutrient icon.
  * @param {string} props.iconBg - Color of the background behind this icon.
- * @param {number} props.nutriValue - Quantity ingested.
+ * @param {string} props.nutriValue - Quantity ingested.
  * @param {string} props.nutriUnit - Quantity related unit.
  * @return ( <NutriArticle iconUrl={iconUrl} iconBg={iconBg} nutriValue={nutriValue} nutriUnit={nutriUnit}/> )
  */
@@ -26,8 +26,8 @@ const NutriArticle = ({iconUrl, iconBg, nutriValue, nutriUnit} : props) => {
                 <img src={iconUrl}/>
             </figure>
             <div className='nutri-stats'>
-                <span>{nutriValue}</span>
-                <span>{nutriUnit}</span>
+                <span className='nutri-value'>{nutriValue}</span>
+                <span className='nutri-type'>{nutriUnit}</span>
             </div>
         </article>
     )
@@ -36,7 +36,7 @@ const NutriArticle = ({iconUrl, iconBg, nutriValue, nutriUnit} : props) => {
 NutriArticle.propTypes = {
     iconUrl: PropTypes.string,
     iconBg: PropTypes.string,
-    nutriValue: PropTypes.number,
+    nutriValue: PropTypes.string,
     nutriUnit: PropTypes.string,
 }
 
