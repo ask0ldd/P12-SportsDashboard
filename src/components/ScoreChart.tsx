@@ -45,7 +45,7 @@ const ScoreChart = ({score} : props) => {
 }
 
 ScoreChart.propTypes = {
-    score:PropTypes.number
+    score: PropTypes.number
 }
 
 export default ScoreChart

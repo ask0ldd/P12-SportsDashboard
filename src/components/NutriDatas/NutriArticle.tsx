@@ -1,4 +1,5 @@
 import '../../styles/NutriArticle.css'
+import PropTypes from 'prop-types'
 
 interface props {
     iconUrl : string
@@ -30,6 +31,13 @@ const NutriArticle = ({iconUrl, iconBg, nutriValue, nutriUnit} : props) => {
             </div>
         </article>
     )
+}
+
+NutriArticle.propTypes = {
+    iconUrl: PropTypes.string,
+    iconBg: PropTypes.string,
+    nutriValue: PropTypes.number,
+    nutriUnit: PropTypes.string,
 }
 
 export default NutriArticle
