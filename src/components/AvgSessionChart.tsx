@@ -1,6 +1,7 @@
 import '../styles/AvgSessionChart.css'
 import { ResponsiveContainer, LineChart, XAxis, YAxis, Line, Legend, Tooltip } from 'recharts'
 import { ISessionAvgDayString } from '../types/modelTypes'
+import PropTypes from 'prop-types';
 
 interface props {
     avgSessions : Array<ISessionAvgDayString>
@@ -74,7 +75,7 @@ const AvgSessionChart = ({avgSessions} : props) => {
                         <stop offset="100%" stopColor="#FFFFFF" stopOpacity={0.7} />
                     </linearGradient>
                 </defs>
-                <rect id="postTooltipBG" x="9%" width="0%" height="100%" opacity="0.2" /* DARK BG AFTER TOOLTIP */
+                <rect id="postTooltipBG" x="9%" width="0%" height="100%" opacity="0.15" /* DARK BG AFTER TOOLTIP */
                 />
                 <XAxis dataKey="day"
                 padding={{ left: 0, right: 0 }}
@@ -115,3 +116,12 @@ const AvgSessionChart = ({avgSessions} : props) => {
 }
 
 export default AvgSessionChart
+
+AvgSessionChart.propTypes = {
+    avgSessions: PropTypes.arrayOf(
+        PropTypes.shape({
+            day: PropTypes.string,
+            sessionLength: PropTypes.number
+        })
+    )
+}
