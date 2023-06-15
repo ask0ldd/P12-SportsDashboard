@@ -1,6 +1,7 @@
 import '../../styles/NutriDatas.css'
 import NutriArticle from './NutriArticle'
 import { INutridatas } from '../../types/modelTypes'
+import PropTypes from 'prop-types'
 
 interface props {
     nutriDatas : INutridatas
@@ -26,6 +27,13 @@ const NutriDatas = ({nutriDatas} : props) => {
             <NutriArticle iconUrl="icons/burger.svg" iconBg="#FBEAEF" nutriValue={nutriDatas.lipidCount+'g'} nutriUnit="Lipides"/>
         </div>
     )
+}
+
+NutriDatas.propTypes = {
+    calorieCount: PropTypes.number,
+    proteinCount: PropTypes.number,
+    carbohydrateCount: PropTypes.number,
+    lipidCount: PropTypes.number,
 }
 
 export default NutriDatas
