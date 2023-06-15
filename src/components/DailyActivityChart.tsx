@@ -1,6 +1,7 @@
 import '../styles/DailyActivityChart.css'
 import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Bar, Tooltip, Legend } from 'recharts'
 import { ISession } from '../types/modelTypes'
+import PropTypes from 'prop-types'
 
 interface props {
     dailyDatas : Array<ISession>
@@ -134,6 +135,16 @@ const DailyActivityChart = ({dailyDatas} : props) => {
                 </BarChart>
             </ResponsiveContainer>
         </article>
+    )
+}
+
+DailyActivityChart.propTypes = {
+    dailydatas: PropTypes.arrayOf(
+        PropTypes.shape({
+            day: PropTypes.string,
+            kilogram: PropTypes.number,
+            calories: PropTypes.number
+        })
     )
 }
 
