@@ -1,6 +1,7 @@
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend, Tooltip} from "recharts"
 import "../styles/PolarChart.css"
 import { IPerformance } from "../types/modelTypes"
+import PropTypes from 'prop-types'
 
 interface props {
     perfDatas : Array<IPerformance>
@@ -98,6 +99,15 @@ const PolarChart = ({perfDatas} : props) => {
             </ResponsiveContainer>
         /*</article>*/
     )
+}
+
+PolarChart.propTypes = {
+  perfDatas: PropTypes.arrayOf(
+      PropTypes.shape({
+          kind: PropTypes.string,
+          value: PropTypes.number
+      })
+  )
 }
 
 export default PolarChart
