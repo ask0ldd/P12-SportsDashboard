@@ -1,5 +1,6 @@
 import { RadialBarChart, RadialBar, PolarAngleAxis, PieChart, ResponsiveContainer, Pie, Cell } from "recharts";
 import '../styles/ScoreChart.css'
+import PropTypes from 'prop-types'
 
 interface props {
     score : number
@@ -41,6 +42,10 @@ const ScoreChart = ({score} : props) => {
             </ResponsiveContainer>
         /*</article>*/
         )
+}
+
+ScoreChart.propTypes = {
+    score:PropTypes.number
 }
 
 export default ScoreChart
