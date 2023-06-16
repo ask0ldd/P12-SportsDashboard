@@ -1,7 +1,7 @@
 import '../styles/AvgSessionChart.css'
 import { ResponsiveContainer, LineChart, XAxis, YAxis, Line, Legend, Tooltip } from 'recharts'
 import { ISessionAvgDayString } from '../types/modelTypes'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 interface props {
     avgSessions : Array<ISessionAvgDayString>
