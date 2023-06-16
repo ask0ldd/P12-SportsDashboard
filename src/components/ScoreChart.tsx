@@ -1,7 +1,7 @@
 import { RadialBarChart, RadialBar, PolarAngleAxis, PieChart, ResponsiveContainer, Pie, Cell } from "recharts";
 import '../styles/ScoreChart.css'
 import PropTypes from 'prop-types'
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 
 interface props {
     score : number
@@ -15,18 +15,41 @@ interface props {
  */
 const ScoreChart = ({score} : props) => {
 
-    const radialBarChartRef = useRef<any>()
+
+    const containerRef = useRef<any>()
+    const [containerWidth, setContainerWidth] = useState()
 
     const datas = [{ score : score, fill: '#E60000' }] // fill as to be passed in the datas to set the color of the radialbar
+
+    // tracking the resizing of the score container to be able to adapt the size of the white circle behind the chart
+    useEffect(() => {
+
+        if(!containerRef.current) { 
+            return;
+        }
+
+        const resizeObserver = new ResizeObserver(() => {
+            if(containerRef.current.current.offsetWidth !== containerWidth) {
+                setContainerWidth(containerRef.current.current.offsetWidth)
+            }
+        })
+
+        resizeObserver.observe(containerRef.current.current)
+
+        return function cleanup() {
+            resizeObserver.disconnect();
+        }
+
+    }, [containerRef.current])
 
     // the biggest value passed to a radialbar is set as 100% : full circle
     // here, there is only one value so 0.3 is considered to represent a full circle
     // or we want 0.3 to be 360 / 0.3 deg so we use a polarangleaxis to scale it, setting the max to 1
     return(
         /*<article>*/
-            <ResponsiveContainer width="99%" height={263} className="scorechart-container"> 
-                <RadialBarChart ref={radialBarChartRef} cx="50%" cy="50%" innerRadius="70%" outerRadius="80%" barSize={10} data={datas} startAngle={90} /* start at the top */ endAngle={450} /* anticlockwise since the attribute is deprecated */ > 
-                    <circle id="circleBG" cx="50%" cy="50%" r={radialBarChartRef.current ? radialBarChartRef.current.props.width*0.7/2+'px' : '35%'} opacity="1" fill="white"/>
+            <ResponsiveContainer ref={containerRef} width="99%" height={263} className="scorechart-container"> 
+                <RadialBarChart cx="50%" cy="50%" innerRadius="70%" outerRadius="80%" barSize={10} data={datas} startAngle={90} /* start at the top */ endAngle={450} /* anticlockwise since the attribute is deprecated */ > 
+                    <circle id="circleBG" cx="50%" cy="50%" r={containerWidth ? containerWidth/2*0.7 : 0} opacity="1" fill="white"/>
                     <text x={12} y={14} fill="black" textAnchor="end" dominantBaseline="end">
                         <tspan x="58" y="34" fontWeight={500} fontSize="15">Score</tspan>
                     </text>
