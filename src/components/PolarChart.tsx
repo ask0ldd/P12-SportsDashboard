@@ -25,6 +25,7 @@ const customEnduranceTick = (value : string) => {
  * Component : Polarcharts custom position tick.
  * @Component
  * @param {Object[]} props - Props.
+ * @param {number} props.containerWidth - PolarChart responsive container width.
  * @param {Object[]} props.payload - Performance type.
  * @param {string} props.payload.value - Type of activity.
  * @return ( <CustomPositionTicks/> )
