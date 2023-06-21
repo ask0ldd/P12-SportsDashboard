@@ -20,6 +20,8 @@ const ScoreChart = ({score} : props) => {
     const containerRef = useRef<any>()
     const [containerWidth, setContainerWidth] = useState()
 
+    const windowDimensions = useBreakpointsTracker()
+
     const datas = [{ score : score, fill: '#E60000' }] // fill as to be passed in the datas to set the color of the radialbar
 
 
@@ -44,13 +46,12 @@ const ScoreChart = ({score} : props) => {
 
     }, [containerRef.current])
 
-    const dimensions = useBreakpointsTracker()
 
     // the biggest value passed to a radialbar is set as 100% : full circle
     // here, there is only one value so 0.3 is considered to represent a full circle
     // or we want 0.3 to be 360 / 0.3 deg so we use a polarangleaxis to scale it, setting the max to 1
     return(
-        <ResponsiveContainer ref={containerRef} width="99%" height={dimensions.width < 1025 ? 263 - 48 : 263} className="scorechart-container"> 
+        <ResponsiveContainer ref={containerRef} width="99%" height={windowDimensions.width < 1025 ? 263 - 48 : 263} className="scorechart-container"> 
             <RadialBarChart cx="50%" cy="50%" innerRadius="70%" outerRadius="80%" barSize={10} data={datas} startAngle={90} /* start at the top */ endAngle={450} /* anticlockwise since the attribute is deprecated */ > 
                 <circle id="circleBG" cx="50%" cy="50%" r={containerWidth ? containerWidth/2*0.65 : 0} opacity="1" fill="white"/>
                 <text x={12} y={14} fill="black" textAnchor="end" dominantBaseline="end">

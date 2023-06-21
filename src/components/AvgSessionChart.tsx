@@ -68,32 +68,11 @@ const AvgSessionChart = ({avgSessions} : props) => {
     function curveType(){
     }
 
-
-    /*useEffect(() => {
-    
-        if(!containerRef.current) { 
-            return;
-        }
-    
-        const resizeObserver = new ResizeObserver(() => {
-            if(containerRef.current.current.offsetWidth !== containerWidth) {
-                setContainerWidth(containerRef.current.current.offsetWidth)
-            }
-        })
-    
-        resizeObserver.observe(containerRef.current.current)
-    
-        return function cleanup() {
-            resizeObserver.disconnect();
-        }
-    
-    }, [containerRef.current])*/
-
-    const dimensions = useBreakpointsTracker()
+    const windowDimensions = useBreakpointsTracker()
 
     return(
         /* 99% and fixed height or won't adapt to parent size */
-        <ResponsiveContainer /*ref={containerRef}*/ width="99%" height={dimensions.width < 1025 ? 263 - 48 : 263} className="sessionschart-container"> 
+        <ResponsiveContainer /*ref={containerRef}*/ width="99%" height={windowDimensions.width < 1025 ? 263 - 48 : 263} className="sessionschart-container"> 
             <LineChart
             data={avgSessions}
             margin={{ top: 16, right: 24, bottom: 16, left: 24 }}

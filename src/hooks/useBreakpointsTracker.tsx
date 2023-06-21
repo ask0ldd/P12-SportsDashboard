@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 function useBreakpointsTracker(){
 
-    const [dimensions, setDimensions] = useState({ 
+    const [windowDimensions, setDimensions] = useState({ 
         height: window.innerHeight,
         width: window.innerWidth
     })
@@ -24,7 +24,7 @@ function useBreakpointsTracker(){
 
     }, [])
 
-    return dimensions
+    return windowDimensions
 
 }
 

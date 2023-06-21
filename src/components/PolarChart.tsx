@@ -81,7 +81,7 @@ const PolarChart = ({perfDatas} : props) => {
   const containerRef = useRef<any>()
   const [containerWidth, setContainerWidth] = useState()
 
-  const dimensions = useBreakpointsTracker()
+  const windowDimensions = useBreakpointsTracker()
 
   useEffect(() => {
 
@@ -105,7 +105,7 @@ const PolarChart = ({perfDatas} : props) => {
 
 
   return(
-    <ResponsiveContainer ref={containerRef} width="99%" height={dimensions.width < 1025 ? 263 - 48 : 263} className="polarchart-container">
+    <ResponsiveContainer ref={containerRef} width="99%" height={windowDimensions.width < 1025 ? 263 - 48 : 263} className="polarchart-container">
         <RadarChart cx="50%" cy="50%" innerRadius="0%" outerRadius="80%" data={perfDatas}>
         <PolarGrid
             radialLines={false} 
