@@ -28,8 +28,8 @@ class PerformanceModel {
     get score() {
         // "as number" to override the type by default which is : number | undefined (due to the fact it doesn't always exist among the datas)
         const score : number = this.mainDatas.score as number || this.mainDatas.todayScore as number
-        // !!! check that 0 <= score <= 1
-        return score
+        // check if 0 <= score <= 1
+        return score >= 0 && score <= 1 ? score : 0
     }
 
     get firstName() {

@@ -118,8 +118,6 @@ const PolarChart = ({perfDatas} : props) => {
             axisLine={false} 
             tickLine={false}
             tick={<CustomPositionTicks containerWidth={containerWidth}/>}
-            /* tickFormatter={customEnduranceTick} */
-            /*tick={{ fontSize: '10px', fill:'#FFFFFF' }}*/
             allowDuplicatedCategory={false}/>
             <Radar dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.7} />
             <Tooltip

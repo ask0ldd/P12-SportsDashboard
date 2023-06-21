@@ -34,10 +34,10 @@ function App() {
               <div className='graphsquares-container'>
                 <AvgSessionChart avgSessions={userDatas?.avgSessions ? userDatas.avgSessions : blankSessions}/>
                 <PolarChart perfDatas={userDatas?.performanceDatas ? userDatas.performanceDatas : blankPerformances}/>
-                <ScoreChart score={userDatas?.score ? userDatas.score : 0}/>{/**/}
+                <ScoreChart score={userDatas?.score ? userDatas.score : 0}/>
               </div>
             </div>
-            {userDatas?.nutriDatas && <NutriDatas nutriDatas={userDatas.nutriDatas ? userDatas.nutriDatas : blankNutridatas}/>}
+            <NutriDatas nutriDatas={userDatas?.nutriDatas ? userDatas.nutriDatas : blankNutridatas}/>
           </div>
         </section>
       </main>
