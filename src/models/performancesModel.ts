@@ -98,7 +98,7 @@ export interface IPerformanceModel{
     firstName : string
     score : number
     performanceDatas : Array<IPerformance>
-    // nutriDatas : 
+    nutriDatas : INutridatas
     dailyDatas : Array<ISession>
     avgSessions : Array<ISessionAvgDayString>
 }
