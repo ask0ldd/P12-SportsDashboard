@@ -21,13 +21,14 @@ class PerformanceModel {
             this.userActivity = datas.userActivity
             this.userSession = datas.userSession
             this.userPerformances = datas.userPerformances
-            // => this.userPerformances = datas.userPerformances ? datas.userPerformances : ([...USER_PERFORMANCE].filter((data : IUserPerformances) => data.userId === userId))[0] <= should be blank datas
+            // !!!! => this.userPerformances = datas.userPerformances ? datas.userPerformances : ([...USER_PERFORMANCE].filter((data : IUserPerformances) => data.userId === userId))[0] <= should be blank datas
         }
     }
 
     get score() {
         // "as number" to override the type by default which is : number | undefined (due to the fact it doesn't always exist among the datas)
         const score : number = this.mainDatas.score as number || this.mainDatas.todayScore as number
+        // !!! check that 0 <= score <= 1
         return score
     }
 
@@ -43,7 +44,7 @@ class PerformanceModel {
 
     get avgSessions() {
         const week : Array<string> = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
-        // day : 1 - day : 6 to day : L - day : D
+        // from : days : 1 -> 6 => to : days : L -> D
         const formatedSessions = this.userSession.sessions.map(session => {return ({ day : week[typeof(session.day) === 'number' ? session.day-1 : 0], sessionLength : session.sessionLength })})
         return formatedSessions
     }
@@ -59,7 +60,7 @@ class PerformanceModel {
         return sessions
     }
 
-    get performanceDatas (){ // gerer si données incorrectes
+    get performanceDatas (){ // !!! gerer si données incorrectes
         const perfs : Array<IPerformance> = [...this.userPerformances.data]
         // {1: 'cardio', ... , 6: 'intensity'} => ['cardio', ... , 'intensity']
         const translations : Dico = {cardio : 'cardio', energy : 'energie', endurance : 'endurance', strength : 'force', speed : 'vitesse', intensity : 'intensité'}
