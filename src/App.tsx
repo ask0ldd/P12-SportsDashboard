@@ -10,7 +10,8 @@ import ScoreChart from './components/ScoreChart'
 import PerformanceModel from './models/performancesModel'
 import { blankDailyActivities, blankNutridatas, blankPerformances, blankSessions } from './mocks/blankDatas'
 import useAPI from './hooks/useAPI'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { IPerformanceModel } from './models/performancesModel'
 
 function App() {
 
@@ -18,13 +19,24 @@ function App() {
   const userId = 18
 
   const {mainDatas, userActivity, userSession, userPerformances, isLoading, isError} = useAPI(userId)
-  // const userDatas = mainDatas && userActivity && userSession && userPerformances && !isError ? new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances}) : new PerformanceModel(18)
-  let userDatas
+  
+  const [userDatas, setUserDatas] = useState<IPerformanceModel>()
 
-  if(mainDatas && userActivity && userSession && userPerformances && !isLoading && !isError) {
+  //let userDatas
+
+  /*if(mainDatas && userActivity && userSession && userPerformances && !isLoading && !isError) {
+    console.log(mainDatas, userActivity, userSession, userPerformances, isLoading, isError )
     console.log('model')
     userDatas = new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances})
-  }
+  }*/
+
+  useEffect(()=> {
+    if(mainDatas && userActivity && userSession && userPerformances && !isLoading && !isError) {
+      console.log(mainDatas, userActivity, userSession, userPerformances, isLoading, isError )
+      console.log('model')
+      setUserDatas(new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances}))
+    }
+  }, [mainDatas, userActivity, userSession, userPerformances])
 
   return (
     <div className="App">

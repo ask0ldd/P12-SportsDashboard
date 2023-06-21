@@ -90,4 +90,13 @@ interface Dico{
     intensity : string
 }
 
+export interface IPerformanceModel{
+    mainDatas : IMainDatas
+    userActivity : IUserActivity
+    userSession : IAverageSessions
+    userPerformances : IUserPerformances
+    firstName : string
+    score : number
+}
+
 export default PerformanceModel
