@@ -15,26 +15,16 @@ import { IPerformanceModel } from './models/performancesModel'
 
 function App() {
 
-  // const userId = 12
-  const userId = 18
+  const userId = 12
+  // const userId = 18
 
   const {mainDatas, userActivity, userSession, userPerformances, isLoading, isError} = useAPI(userId)
   
   const [userDatas, setUserDatas] = useState<IPerformanceModel>()
 
-  //let userDatas
-
-  /*if(mainDatas && userActivity && userSession && userPerformances && !isLoading && !isError) {
-    console.log(mainDatas, userActivity, userSession, userPerformances, isLoading, isError )
-    console.log('model')
-    userDatas = new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances})
-  }*/
-
   useEffect(()=> {
     if(mainDatas && userActivity && userSession && userPerformances && !isLoading && !isError) 
     {
-      console.log(mainDatas, userActivity, userSession, userPerformances, isLoading, isError )
-      console.log('model')
       setUserDatas(new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances}))
     }
   }, [mainDatas, userActivity, userSession, userPerformances])

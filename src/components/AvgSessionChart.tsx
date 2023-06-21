@@ -89,7 +89,7 @@ const AvgSessionChart = ({avgSessions} : props) => {
                 domain={['dataMin-10', 'dataMax+10']}
                 />
                 <Line 
-                type='natural' 
+                type='monotoneX' /* Soutenance : No interpolation between the two Zeros */
                 dataKey="sessionLength" 
                 stroke="url(#colorUv)" /* Soutenance : Gradient */
                 strokeWidth={2}
