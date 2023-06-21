@@ -10,16 +10,18 @@ import ScoreChart from './components/ScoreChart'
 import PerformanceModel from './models/performancesModel'
 import { blankDailyActivities, blankNutridatas, blankPerformances, blankSessions } from './mocks/blankDatas'
 import useAPI from './hooks/useAPI'
+import { useEffect } from 'react'
 
 function App() {
 
-  const userId = 12
-  // const userId = 18
+  // const userId = 12
+  const userId = 18
 
   const {mainDatas, userActivity, userSession, userPerformances, isLoading, isError} = useAPI(userId)
   // const userDatas = mainDatas && userActivity && userSession && userPerformances && !isError ? new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances}) : new PerformanceModel(18)
   let userDatas
-  if(mainDatas && userActivity && userSession && userPerformances) userDatas = new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances})
+
+  if(mainDatas && userActivity && userSession && userPerformances && !isLoading && !isError) userDatas = new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances})
 
   return (
     <div className="App">

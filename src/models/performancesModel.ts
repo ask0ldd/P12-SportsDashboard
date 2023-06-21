@@ -1,5 +1,5 @@
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../mocks/datas'
-import { IMainDatas, IUserActivity, IUserPerformances, IPerformance, IAverageSessions, ISession, INutridatas } from '../types/modelTypes'
+import { IMainDatas, IUserActivity, IUserPerformances, IPerformance, IAverageSessions, ISession, INutridatas, ISessionAvg } from '../types/modelTypes'
 
 class PerformanceModel {
 
@@ -39,12 +39,20 @@ class PerformanceModel {
 
     get nutriDatas() {
         const nutriDatas : INutridatas = this.mainDatas.keyData
+        nutriDatas.calorieCount = nutriDatas.calorieCount / 100
         return nutriDatas
     }
 
     get avgSessions() {
         const week : Array<string> = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
-        // from : days : 1 -> 6 => to : days : L -> D
+        // sorting by day as a security
+        const sortedSessions = [...this.userSession.sessions]
+        sortedSessions.sort(function (a : ISessionAvg, b : ISessionAvg){
+            if(new Date(a.day) > new Date(b.day)) return 1
+            if(new Date(a.day) < new Date(b.day)) return -1
+            return 0
+        })
+        // from : days : 1 -> 7 => to : days : L -> D
         const formatedSessions = this.userSession.sessions.map(session => {return ({ day : week[typeof(session.day) === 'number' ? session.day-1 : 0], sessionLength : session.sessionLength })})
         return formatedSessions
     }
@@ -68,7 +76,7 @@ class PerformanceModel {
         const formatedPerfs = perfs.map((perf : IPerformance) => {
             return {value : perf.value, kind : translations[perfKind[perf.kind-1] as keyof Dico]}
         })
-        // needs to be displayed in a reversed order
+        // needs to be in reversed order to be displayed the right way
         return formatedPerfs.reverse()
     }
 }
