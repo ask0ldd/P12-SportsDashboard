@@ -9,16 +9,17 @@ interface props {
 }
 
 /**
- * Component : Polarcharts custom endurance tick.
+ * Component : LineChart custom training session duration tooltip.
  * @Component
  * @param {Object[]} props - Props.
  * @param {Object[]} props.payload - Payload object.
- * @param {string} props.payload.value - Type of activity.
- * @return ( <CustomEnduranceTicks/> )
+ * @param {number} props.payload[0].value - Training session duration.
+ * @return ( <CustomTooltip/> )
  */
-const customEnduranceTick = (value : string) => {
-    if(value!=="Endurance") return value
-    return (<div><br/>{value as string}</div>)
+const CustomTooltip = ({payload} : any) => {
+  if (payload && payload.length) {
+      return (<div style={{backgroundColor:'#fff', color:'#000000', fontSize:'10px', padding:'4px 8px'}}>Value : {payload[0].value}</div>)
+  }
 }
 
 /**
@@ -122,9 +123,10 @@ const PolarChart = ({perfDatas} : props) => {
             <Radar dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.7} />
             <Tooltip
             wrapperStyle={{outline:'none', border:'none'}}
-            itemStyle={{color:'#000', fontSize:'10px', padding:'0px 2px'}}
+            /*itemStyle={{color:'#000', fontSize:'10px', padding:'0px 2px'}}*/
             labelStyle={{color:'#000', display:'none', margin:'0'}}
             cursor={false}
+            content={CustomTooltip}
             />
         </RadarChart>
     </ResponsiveContainer>

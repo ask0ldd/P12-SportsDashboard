@@ -44,7 +44,9 @@ function useAPI(userId : number){
                     fetch(baseUrl + userUrls.Performance),
                 ])
 
-                const [datas, activities, sessions, perfs] = (await Promise.all(res.map(r => r.json()))).map(data => data.data) // datas are sent inside a "data" key, so some unfolding needed
+                const nestedDatas = await Promise.all(res.map(r => r.json()))
+                // datas are nested inside a "data" key, so some unfolding is required
+                const [datas, activities, sessions, perfs] = nestedDatas.map(data => data.data)
 
                 setUserDatas(datas)
                 setUserActivity(activities)
