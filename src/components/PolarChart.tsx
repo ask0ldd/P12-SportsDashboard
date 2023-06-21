@@ -106,15 +106,15 @@ const PolarChart = ({perfDatas} : props) => {
         <PolarGrid
             radialLines={false} 
             />
-            {/* defines the number of concentric polygons (center point included) */}
             <PolarRadiusAxis
+            /* defines the number of concentric polygons (center point included) */
             tickCount={6}
             tick={false}
             axisLine={false} 
             tickLine={false}
             />
-            {/* defines the number of corners for each polygon */}
             <PolarAngleAxis 
+            /* defines the number of corners for each polygon */
             dataKey="kind" 
             axisLine={false} 
             tickLine={false}
@@ -123,7 +123,6 @@ const PolarChart = ({perfDatas} : props) => {
             <Radar dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.7} />
             <Tooltip
             wrapperStyle={{outline:'none', border:'none'}}
-            /*itemStyle={{color:'#000', fontSize:'10px', padding:'0px 2px'}}*/
             labelStyle={{color:'#000', display:'none', margin:'0'}}
             cursor={false}
             content={CustomTooltip}

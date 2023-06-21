@@ -78,14 +78,16 @@ const DailyActivityChart = ({dailyDatas} : props) => {
                     viewBox={{ x: 0, y: 0, width: 40, height: 65 }}
                     wrapperStyle={{backgroundColor:"#E60000", outline:"none", border:"none"}}
                     content={CustomTooltip}
-                    cursor={{opacity:0.5}} /* grey active bar hover */
+                    /* grey active bar hover */
+                    cursor={{opacity:0.5}}
                     />
                     <text x={12} y={30} fill="#20253A" textAnchor="middle" dominantBaseline="central"> {/* titre graph */}
                         <tspan x="62" dy="0" fontSize="14" fontWeight={600}>Activité quotidienne</tspan>
                     </text>
                     <CartesianGrid 
                     strokeDasharray="2 2"
-                    vertical={false} /* only the horizontal lines of the grids are displayed */
+                    /* only the horizontal lines of the grids are displayed */
+                    vertical={false} 
                     stroke="#DEDEDE"
                     />
                     <XAxis 

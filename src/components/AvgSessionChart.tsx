@@ -94,10 +94,12 @@ const AvgSessionChart = ({avgSessions} : props) => {
                 />
                 <Line 
                 connectNulls
-                type='monotoneX' /* No interpolation between the two Zeros */
+                /* No interpolation between the two Zeros */
+                type='monotoneX' 
                 // type ={func}
-                dataKey="sessionLength" 
-                stroke="url(#colorUv)" /* Soutenance : Gradient */
+                dataKey="sessionLength"
+                /* Soutenance : Gradient */ 
+                stroke="url(#colorUv)" 
                 strokeWidth={2}
                 dot={false}
                 />
