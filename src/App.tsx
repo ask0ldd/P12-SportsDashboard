@@ -31,7 +31,8 @@ function App() {
   }*/
 
   useEffect(()=> {
-    if(mainDatas && userActivity && userSession && userPerformances && !isLoading && !isError) {
+    if(mainDatas && userActivity && userSession && userPerformances && !isLoading && !isError) 
+    {
       console.log(mainDatas, userActivity, userSession, userPerformances, isLoading, isError )
       console.log('model')
       setUserDatas(new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances}))

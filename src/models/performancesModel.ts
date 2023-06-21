@@ -1,5 +1,5 @@
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../mocks/datas'
-import { IMainDatas, IUserActivity, IUserPerformances, IPerformance, IAverageSessions, ISession, INutridatas, ISessionAvg } from '../types/modelTypes'
+import { IMainDatas, IUserActivity, IUserPerformances, IPerformance, IAverageSessions, ISession, INutridatas, ISessionAvg, ISessionAvgDayString } from '../types/modelTypes'
 
 class PerformanceModel {
 
@@ -97,6 +97,10 @@ export interface IPerformanceModel{
     userPerformances : IUserPerformances
     firstName : string
     score : number
+    performanceDatas : Array<IPerformance>
+    // nutriDatas : 
+    dailyDatas : Array<ISession>
+    avgSessions : Array<ISessionAvgDayString>
 }
 
 export default PerformanceModel
