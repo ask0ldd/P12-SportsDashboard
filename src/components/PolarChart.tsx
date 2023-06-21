@@ -3,6 +3,7 @@ import "../styles/PolarChart.css"
 import { IPerformance } from "../types/modelTypes"
 import PropTypes from 'prop-types'
 import { useRef, useState, useEffect } from "react"
+import useBreakpointsTracker from "../hooks/useBreakpointsTracker"
 
 interface props {
     perfDatas : Array<IPerformance>
@@ -80,6 +81,8 @@ const PolarChart = ({perfDatas} : props) => {
   const containerRef = useRef<any>()
   const [containerWidth, setContainerWidth] = useState()
 
+  const dimensions = useBreakpointsTracker()
+
   useEffect(() => {
 
     if(!containerRef.current) { 
@@ -100,8 +103,9 @@ const PolarChart = ({perfDatas} : props) => {
 
   }, [containerRef.current])
 
+
   return(
-    <ResponsiveContainer ref={containerRef} width="99%" height={window.innerWidth < 1025 ? 263 - 48 : 263} className="polarchart-container">
+    <ResponsiveContainer ref={containerRef} width="99%" height={dimensions.width < 1025 ? 263 - 48 : 263} className="polarchart-container">
         <RadarChart cx="50%" cy="50%" innerRadius="0%" outerRadius="80%" data={perfDatas}>
         <PolarGrid
             radialLines={false} 

@@ -53,10 +53,11 @@
   }
 }
 
-@media (max-width: 1330px) {
+@media (max-width: 1024px) {
   .nutri-article {
     min-width: 200px;
     padding: 1rem;
     height: 112px;
+    column-gap: 1rem;
   }
 }

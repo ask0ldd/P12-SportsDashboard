@@ -2,6 +2,8 @@ import '../styles/AvgSessionChart.css'
 import { ResponsiveContainer, LineChart, XAxis, YAxis, Line, Legend, Tooltip } from 'recharts'
 import { ISessionAvgDayString } from '../types/modelTypes'
 import PropTypes from 'prop-types'
+import { useEffect, useRef, useState } from 'react'
+import useBreakpointsTracker from '../hooks/useBreakpointsTracker'
 
 interface props {
     avgSessions : Array<ISessionAvgDayString>
@@ -45,6 +47,9 @@ const AvgSessionChart = ({avgSessions} : props) => {
     const postTooltipBG = document.querySelector('#postTooltipBG')
     postTooltipBG?.setAttribute("width", "0%")
 
+    const containerRef = useRef<any>()
+    const [containerWidth, setContainerWidth] = useState()
+
     const onMouseMove = (hoveredData : any) => { // any > needs better typing
 
         if (hoveredData && hoveredData.activePayload && avgSessions && avgSessions?.length > 0) {
@@ -61,12 +66,34 @@ const AvgSessionChart = ({avgSessions} : props) => {
     }
 
     function curveType(){
-
     }
+
+
+    /*useEffect(() => {
+    
+        if(!containerRef.current) { 
+            return;
+        }
+    
+        const resizeObserver = new ResizeObserver(() => {
+            if(containerRef.current.current.offsetWidth !== containerWidth) {
+                setContainerWidth(containerRef.current.current.offsetWidth)
+            }
+        })
+    
+        resizeObserver.observe(containerRef.current.current)
+    
+        return function cleanup() {
+            resizeObserver.disconnect();
+        }
+    
+    }, [containerRef.current])*/
+
+    const dimensions = useBreakpointsTracker()
 
     return(
         /* 99% and fixed height or won't adapt to parent size */
-        <ResponsiveContainer width="99%" height={window.innerWidth < 1025 ? 263 - 48 : 263} className="sessionschart-container"> 
+        <ResponsiveContainer /*ref={containerRef}*/ width="99%" height={dimensions.width < 1025 ? 263 - 48 : 263} className="sessionschart-container"> 
             <LineChart
             data={avgSessions}
             margin={{ top: 16, right: 24, bottom: 16, left: 24 }}
