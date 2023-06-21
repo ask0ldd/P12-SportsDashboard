@@ -21,7 +21,10 @@ function App() {
   // const userDatas = mainDatas && userActivity && userSession && userPerformances && !isError ? new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances}) : new PerformanceModel(18)
   let userDatas
 
-  if(mainDatas && userActivity && userSession && userPerformances && !isLoading && !isError) userDatas = new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances})
+  if(mainDatas && userActivity && userSession && userPerformances && !isLoading && !isError) {
+    console.log('model')
+    userDatas = new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances})
+  }
 
   return (
     <div className="App">

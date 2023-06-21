@@ -32,6 +32,8 @@ function useAPI(userId : number){
     useEffect(() => {
         async function GetUserDatas(){
 
+            console.log('useAPI')
+
             setLoading(true)
             setError(false)
             const datas = await fetchDatas(baseUrl + userUrls.datas)

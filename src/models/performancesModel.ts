@@ -38,8 +38,8 @@ class PerformanceModel {
     }
 
     get nutriDatas() {
-        const nutriDatas : INutridatas = this.mainDatas.keyData
-        nutriDatas.calorieCount = nutriDatas.calorieCount / 100
+        const nutriDatas : INutridatas = {...this.mainDatas.keyData}
+        nutriDatas.calorieCount = nutriDatas.calorieCount / 1000
         return nutriDatas
     }
 
