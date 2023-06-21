@@ -101,7 +101,7 @@ const PolarChart = ({perfDatas} : props) => {
   }, [containerRef.current])
 
   return(
-    <ResponsiveContainer ref={containerRef} width="99%" height={263} className="polarchart-container">
+    <ResponsiveContainer ref={containerRef} width="99%" height={window.innerWidth < 1025 ? 263 - 48 : 263} className="polarchart-container">
         <RadarChart cx="50%" cy="50%" innerRadius="0%" outerRadius="80%" data={perfDatas}>
         <PolarGrid
             radialLines={false} 

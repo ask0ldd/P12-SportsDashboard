@@ -66,7 +66,7 @@ const AvgSessionChart = ({avgSessions} : props) => {
 
     return(
         /* 99% and fixed height or won't adapt to parent size */
-        <ResponsiveContainer width="99%" height={263} className="sessionschart-container"> 
+        <ResponsiveContainer width="99%" height={window.innerWidth < 1025 ? 263 - 48 : 263} className="sessionschart-container"> 
             <LineChart
             data={avgSessions}
             margin={{ top: 16, right: 24, bottom: 16, left: 24 }}

@@ -3,6 +3,8 @@
   min-width: 258px;
   height: 124px;
   display: flex;
+  justify-content: start;
+  align-items: center;
   padding: 2rem;
   column-gap: 1.5rem;
   background-color: #f7f7f7;
@@ -48,5 +50,13 @@
   .nutri-article {
     min-width: 200px;
     padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 1330px) {
+  .nutri-article {
+    min-width: 200px;
+    padding: 1rem;
+    height: 112px;
   }
 }
