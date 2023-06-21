@@ -60,8 +60,12 @@ const AvgSessionChart = ({avgSessions} : props) => {
         postTooltipBG?.setAttribute("width", "0%")
     }
 
+    function curveType(){
+
+    }
+
     return(
-        /* 99% and fixed height or difficulties to resize with parent */ /* Soutenance : Gradient */
+        /* 99% and fixed height or won't adapt to parent size */
         <ResponsiveContainer width="99%" height={263} className="sessionschart-container"> 
             <LineChart
             data={avgSessions}
@@ -69,13 +73,13 @@ const AvgSessionChart = ({avgSessions} : props) => {
             onMouseMove={onMouseMove}
             onMouseLeave={onMouseOut}
             >
-                <defs> {/* Soutenance : Gradient */}
-                    <linearGradient id="colorUv" x1="0" y1="0" x2="1" y2="0">
+                <defs>
+                    <linearGradient id="colorUv" x1="0" y1="0" x2="1" y2="0" /* Line Gradient Definition */>
                         <stop offset="0%" stopColor="#FFFFFF" stopOpacity={0.4} />
                         <stop offset="100%" stopColor="#FFFFFF" stopOpacity={0.7} />
                     </linearGradient>
                 </defs>
-                <rect id="postTooltipBG" x="9%" width="0%" height="100%" opacity="0.15" /* DARK BG AFTER TOOLTIP */
+                <rect id="postTooltipBG" x="9%" width="0%" height="100%" opacity="0.15" /* dark BG following the Tooltip */
                 />
                 <XAxis dataKey="day"
                 padding={{ left: 0, right: 0 }}
@@ -89,7 +93,9 @@ const AvgSessionChart = ({avgSessions} : props) => {
                 domain={['dataMin-10', 'dataMax+10']}
                 />
                 <Line 
-                type='monotoneX' /* Soutenance : No interpolation between the two Zeros */
+                connectNulls
+                type='monotoneX' /* No interpolation between the two Zeros */
+                // type ={func}
                 dataKey="sessionLength" 
                 stroke="url(#colorUv)" /* Soutenance : Gradient */
                 strokeWidth={2}

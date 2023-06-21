@@ -19,7 +19,7 @@ function useAPI(userId : number){
     const [isLoading, setLoading] = useState(true)
     const [isError, setError] = useState(false)
 
-    const fetchDatas = async (url : string) =>  {
+    /*const fetchDatas = async (url : string) =>  {
         try{
             const response = await fetch(url)
             const datas = await response.json()
@@ -27,28 +27,40 @@ function useAPI(userId : number){
         }catch(error){
             console.log(error)
         }
-    }
+    }*/
 
     useEffect(() => {
         async function GetUserDatas(){
-            
-            setLoading(true)
-            setError(false)
-            const datas = await fetchDatas(baseUrl + userUrls.datas)
-            const activities = await fetchDatas(baseUrl + userUrls.activities)
-            const sessions = await fetchDatas(baseUrl + userUrls.avgSessions)
-            const perfs = await fetchDatas(baseUrl + userUrls.Performance)
 
-            if(datas == null || activities == null || sessions == null || perfs == null){
-                setError(true)
-                setLoading(false)
-            }
-            else{
+            try{
+
+                setLoading(true)
+                setError(false)
+
+                const res = await Promise.all([
+                    fetch(baseUrl + userUrls.datas),
+                    fetch(baseUrl + userUrls.activities),
+                    fetch(baseUrl + userUrls.avgSessions),
+                    fetch(baseUrl + userUrls.Performance),
+                ])
+
+                const [datas, activities, sessions, perfs] = (await Promise.all(res.map(r => r.json()))).map(data => data.data) // datas are sent inside a "data" key, so some unfolding needed
+
                 setUserDatas(datas)
                 setUserActivity(activities)
                 setAverageSessions(sessions)
                 setUserPerformances(perfs)
                 setLoading(false)
+
+            }catch(error){
+
+                console.log(error)
+                setError(true)
+
+            }finally{
+
+                setLoading(false)
+
             }
         }
 
