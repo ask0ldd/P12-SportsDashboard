@@ -105,12 +105,14 @@ const PolarChart = ({perfDatas} : props) => {
         <PolarGrid
             radialLines={false} 
             />
+            {/* defines the number of concentric polygons (center point included) */}
             <PolarRadiusAxis
             tickCount={6}
             tick={false}
             axisLine={false} 
             tickLine={false}
             />
+            {/* defines the number of corners for each polygon */}
             <PolarAngleAxis 
             dataKey="kind" 
             axisLine={false} 
