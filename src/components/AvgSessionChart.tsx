@@ -47,8 +47,8 @@ const AvgSessionChart = ({avgSessions} : props) => {
     const postTooltipBG = document.querySelector('#postTooltipBG')
     postTooltipBG?.setAttribute("width", "0%")
 
-    const containerRef = useRef<any>()
-    const [containerWidth, setContainerWidth] = useState()
+    /*const containerRef = useRef<any>()
+    const [containerWidth, setContainerWidth] = useState()*/
 
     const onMouseMove = (hoveredData : any) => { // any > needs better typing
 

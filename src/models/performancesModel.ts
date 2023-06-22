@@ -1,4 +1,4 @@
-import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../mocks/datas'
+// import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../mocks/datas'
 import { IMainDatas, IUserActivity, IUserPerformances, IPerformance, IAverageSessions, ISession, INutridatas, ISessionAvg, ISessionAvgDayString } from '../types/modelTypes'
 import { blankDailyActivities, blankNutridatas, blankPerformancesFolded, blankSessionsInt, blankUserInfos } from '../mocks/blankDatas'
 
@@ -38,8 +38,7 @@ class PerformanceModel {
     }
 
     get nutriDatas() {
-        const nutriDatas : INutridatas = {...this.mainDatas.keyData}
-        nutriDatas.calorieCount = nutriDatas.calorieCount / 1000
+        const nutriDatas : INutridatas = {...this.mainDatas.keyData, calorieCount: this.mainDatas.keyData.calorieCount / 1000 } // converting cal to kCal
         return nutriDatas
     }
 
@@ -71,7 +70,7 @@ class PerformanceModel {
 
     get performanceDatas (){ // !!! gerer si données incorrectes
         const perfs : Array<IPerformance> = [...this.userPerformances.data]
-        // {1: 'cardio', ... , 6: 'intensity'} => ['cardio', ... , 'intensity']
+        // {1: 'cardio', ... , 6: 'intensity'} + {value: 50, kind: 1} => {value: 50, kind: 'cardio'}
         const translations : Dico = {cardio : 'cardio', energy : 'energie', endurance : 'endurance', strength : 'force', speed : 'vitesse', intensity : 'intensité'}
         const perfKind : Array<string> = Object.values(this.userPerformances.kind)
         const formatedPerfs = perfs.map((perf : IPerformance) => {
