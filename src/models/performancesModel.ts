@@ -1,6 +1,6 @@
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../mocks/datas'
 import { IMainDatas, IUserActivity, IUserPerformances, IPerformance, IAverageSessions, ISession, INutridatas, ISessionAvg, ISessionAvgDayString } from '../types/modelTypes'
-import { blankDailyActivities, blankNutridatas, blankPerformances, blankSessions } from '../mocks/blankDatas'
+import { blankDailyActivities, blankNutridatas, blankPerformances, blankSessionsInt } from '../mocks/blankDatas'
 
 class PerformanceModel {
 
@@ -15,7 +15,7 @@ class PerformanceModel {
         if(datas == null){
             this.mainDatas = ([...USER_MAIN_DATA].filter((data : IMainDatas) => data.id === userId))[0]
             this.userActivity = { userId : 0, sessions: blankDailyActivities }
-            this.userSession = ([...USER_AVERAGE_SESSIONS].filter((data : IAverageSessions) => data.userId === userId))[0]
+            this.userSession = { userId : 0, sessions: blankSessionsInt }
             this.userPerformances = ([...USER_PERFORMANCE].filter((data : IUserPerformances) => data.userId === userId))[0]
         }else{
             this.mainDatas = datas.mainDatas ? datas.mainDatas : ([...USER_MAIN_DATA].filter((data : IMainDatas) => data.id === userId))[0] // <= replace by blankdatas
