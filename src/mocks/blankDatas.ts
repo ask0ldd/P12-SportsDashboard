@@ -131,3 +131,49 @@ export const blankPerformances = [
         kind: 'cardio'
     }
 ]
+
+
+export const blankPerformancesFolded = {
+    userId: 12,
+    kind: {
+        1: 'cardio',
+        2: 'energy',
+        3: 'endurance',
+        4: 'strength',
+        5: 'speed',
+        6: 'intensity'
+    },
+    data: [
+        {
+            value: 0,
+            kind: 1
+        },
+        {
+            value: 0,
+            kind: 2
+        },
+        {
+            value: 0,
+            kind: 3
+        },
+        {
+            value: 0,
+            kind: 4
+        },
+        {
+            value: 0,
+            kind: 5
+        },
+        {
+            value: 0,
+            kind: 6
+        }
+    ]
+}
+
+export const blankUserInfos =
+{ 
+    firstName: 'N /', 
+    lastName: 'A', 
+    age: 0,
+}

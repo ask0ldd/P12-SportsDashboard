@@ -1,6 +1,6 @@
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../mocks/datas'
 import { IMainDatas, IUserActivity, IUserPerformances, IPerformance, IAverageSessions, ISession, INutridatas, ISessionAvg, ISessionAvgDayString } from '../types/modelTypes'
-import { blankDailyActivities, blankNutridatas, blankPerformances, blankSessionsInt } from '../mocks/blankDatas'
+import { blankDailyActivities, blankNutridatas, blankPerformancesFolded, blankSessionsInt, blankUserInfos } from '../mocks/blankDatas'
 
 class PerformanceModel {
 
@@ -13,15 +13,15 @@ class PerformanceModel {
         // if the datas haven't been successfully retrieved from the API (i.e. not passed as params) => mock them
         // remplacer par blanks instead of mock datas uniquement les datas manquantes, pas toutes les datas
         if(datas == null){
-            this.mainDatas = { id: 0, userInfos: { firstName: 'N /', lastName: 'A', age: 0, }, score: 0, keyData: blankNutridatas }
-            this.userActivity = { userId : 0, sessions: blankDailyActivities }
-            this.userSession = { userId : 0, sessions: blankSessionsInt }
-            this.userPerformances = ([...USER_PERFORMANCE].filter((data : IUserPerformances) => data.userId === userId))[0]
+            this.mainDatas = { id: 0, userInfos: {...blankUserInfos}, score: 0, keyData: {...blankNutridatas} }
+            this.userActivity = { userId : 0, sessions: {...blankDailyActivities} }
+            this.userSession = { userId : 0, sessions: {...blankSessionsInt} }
+            this.userPerformances = {...blankPerformancesFolded}
         }else{
-            this.mainDatas = datas.mainDatas ? datas.mainDatas : { id: 0, userInfos: { firstName: 'N /', lastName: 'A', age: 0, }, score: 0, keyData: blankNutridatas }
-            this.userActivity = datas.userActivity ? datas.userActivity : { userId : 0, sessions: blankDailyActivities }
-            this.userSession = datas.userSession ? datas.userSession : { userId : 0, sessions: blankSessionsInt }
-            this.userPerformances = datas.userPerformances ? datas.userPerformances : ([...USER_PERFORMANCE].filter((data : IUserPerformances) => data.userId === userId))[0] // <= replace by blankdatas
+            this.mainDatas = datas.mainDatas ? datas.mainDatas : { id: 0, userInfos: {...blankUserInfos}, score: 0, keyData: {...blankNutridatas} }
+            this.userActivity = datas.userActivity ? datas.userActivity : { userId : 0, sessions: {...blankDailyActivities} }
+            this.userSession = datas.userSession ? datas.userSession : { userId : 0, sessions: {...blankSessionsInt} }
+            this.userPerformances = datas.userPerformances ? datas.userPerformances : {...blankPerformancesFolded}
         }
     }
 
