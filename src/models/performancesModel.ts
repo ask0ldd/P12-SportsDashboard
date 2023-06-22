@@ -32,12 +32,12 @@ class PerformanceModel {
     }
 
     get firstName() {
-        const firstName : string = this.mainDatas.userInfos.firstName
+        const firstName : string = this.mainDatas.userInfos.firstName || 'N/A'
         return firstName
     }
 
     get nutriDatas() {
-        const nutriDatas : INutridatas = {...this.mainDatas.keyData, calorieCount: this.mainDatas.keyData.calorieCount / 1000 } // converting cal to kCal
+        const nutriDatas : INutridatas = {...this.mainDatas.keyData, calorieCount: this.mainDatas.keyData.calorieCount / 1000 } || {...blankNutridatas} // converting cal to kCal
         return nutriDatas
     }
 
@@ -50,13 +50,13 @@ class PerformanceModel {
             return 0
         }).slice(0,7)
         // from : days : 1 -> 7 => to : days : L -> D
-        const formatedSessions = sortedSessions.map(session => {return ({ day : week[typeof(session.day) === 'number' ? session.day-1 : 0], sessionLength : session.sessionLength })})
+        const formatedSessions = sortedSessions.map(session => {return ({ day : week[typeof(session.day) === 'number' ? session.day-1 : 0], sessionLength : session.sessionLength })}) || [...blankSessionsInt]
         return formatedSessions
     }
 
     get dailyDatas (){
         // sorting by date as a security
-        const sessions : Array<ISession> = [...this.userActivity.sessions]
+        const sessions : Array<ISession> = [...this.userActivity.sessions] || [...blankDailyActivities]
         sessions.sort(function (a : ISession, b : ISession){
             if(new Date(a.day) > new Date(b.day)) return 1
             if(new Date(a.day) < new Date(b.day)) return -1
@@ -65,8 +65,8 @@ class PerformanceModel {
         return sessions
     }
 
-    get performanceDatas (){ // !!! gerer si données incorrectes
-        const perfs : Array<IPerformance> = [...this.userPerformances.data]
+    get performanceDatas (){
+        const perfs : Array<IPerformance> = [...this.userPerformances.data] || {...blankPerformancesFolded}.data
         // {1: 'cardio', ... , 6: 'intensity'} + {value: 50, kind: 1} => {value: 50, kind: 'cardio'}
         const translations : Dico = {cardio : 'cardio', energy : 'energie', endurance : 'endurance', strength : 'force', speed : 'vitesse', intensity : 'intensité'}
         const perfKind : Array<string> = Object.values(this.userPerformances.kind)

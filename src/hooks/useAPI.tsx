@@ -37,17 +37,17 @@ function useAPI(userId : number){
                 // datas are nested inside a "data" property, so some unfolding is required
                 const [datas, activities, sessions, perfs] = nestedDatas.map(data => data.data)
 
-                setLoading(false)
-
                 if(datas && activities && sessions && perfs) 
                 {
-                    // instanciate the model with the APIs datas
+                    // instanciate the model with the fetched datas
                     setFormatedUserDatas(new PerformanceModel(userId, {mainDatas: datas, userActivity: activities, userSession: sessions, userPerformances: perfs}))
                 }
                 else{
                     // instaciate the model with some generic blank datas
                     setFormatedUserDatas(new PerformanceModel(userId))
                 }
+
+                setLoading(false)
 
             }catch(error){
 
