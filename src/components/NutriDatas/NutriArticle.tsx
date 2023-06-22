@@ -10,7 +10,7 @@ interface props {
 
 // !!! needs to be updated
 /**
- * Component showing the quantity ingested of a specific nutrient.
+ * Component showing the ingested quantity of a specific nutrient.
  * @Component
  * @param {Object[]} props - Props.
  * @param {string} props.iconUrl - Url of the nutrient icon.

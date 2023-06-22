@@ -1,5 +1,6 @@
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../mocks/datas'
 import { IMainDatas, IUserActivity, IUserPerformances, IPerformance, IAverageSessions, ISession, INutridatas, ISessionAvg, ISessionAvgDayString } from '../types/modelTypes'
+import { blankDailyActivities, blankNutridatas, blankPerformances, blankSessions } from '../mocks/blankDatas'
 
 class PerformanceModel {
 
@@ -13,7 +14,7 @@ class PerformanceModel {
         // remplacer par blanks instead of mock datas uniquement les datas manquantes, pas toutes les datas
         if(datas == null){
             this.mainDatas = ([...USER_MAIN_DATA].filter((data : IMainDatas) => data.id === userId))[0]
-            this.userActivity = ([...USER_ACTIVITY].filter((data : IUserActivity) => data.userId === userId))[0]
+            this.userActivity = { userId : 0, sessions: blankDailyActivities }
             this.userSession = ([...USER_AVERAGE_SESSIONS].filter((data : IAverageSessions) => data.userId === userId))[0]
             this.userPerformances = ([...USER_PERFORMANCE].filter((data : IUserPerformances) => data.userId === userId))[0]
         }else{
@@ -43,6 +44,7 @@ class PerformanceModel {
     }
 
     get avgSessions() {
+        //!!! check if length array = 7, check
         const week : Array<string> = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
         // sorting by day as a security
         const sortedSessions = [...this.userSession.sessions]
