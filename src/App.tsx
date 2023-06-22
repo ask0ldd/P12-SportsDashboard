@@ -7,11 +7,11 @@ import DailyActivityChart from './components/DailyActivityChart'
 import AvgSessionChart from './components/AvgSessionChart'
 import PolarChart from './components/PolarChart'
 import ScoreChart from './components/ScoreChart'
-import PerformanceModel from './models/performancesModel'
+// import PerformanceModel from './models/performancesModel'
 import { blankDailyActivities, blankNutridatas, blankPerformances, blankSessions } from './mocks/blankDatas'
 import useAPI from './hooks/useAPI'
-import { useEffect, useState } from 'react'
-import { IPerformanceModel } from './models/performancesModel'
+/*import { useEffect, useState } from 'react'
+import { IPerformanceModel } from './models/performancesModel'*/
 
 function App() {
 
@@ -19,19 +19,8 @@ function App() {
   // const userId = 18
 
   // get all the required datas out of the API
-  const {mainDatas, userActivity, userSession, userPerformances, isLoading, isError} = useAPI(userId)
+  const userDatas = useAPI(userId)
   
-  // state where will be place the instanciated model containing the formated user's datas
-  const [userDatas, setUserDatas] = useState<IPerformanceModel>() 
-
-  // listen for any change on the dependencies. when a change occurs, create a new model with those datas fetched out of the API
-  useEffect(()=> {
-    if(mainDatas && userActivity && userSession && userPerformances && !isLoading && !isError) 
-    {
-      setUserDatas(new PerformanceModel(userId, {mainDatas, userActivity, userSession, userPerformances}))
-    }
-  }, [mainDatas, userActivity, userSession, userPerformances])
-
   return (
     <div className="App">
       <Header></Header>

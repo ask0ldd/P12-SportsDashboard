@@ -13,13 +13,13 @@ class PerformanceModel {
         // if some datas haven't been successfully retrieved from the API (i.e. not passed as params) => completed with blankdatas
         if(datas == null){
             this.mainDatas = { id: 0, userInfos: {...blankUserInfos}, score: 0, keyData: {...blankNutridatas} }
-            this.userActivity = { userId : 0, sessions: {...blankDailyActivities} }
-            this.userSession = { userId : 0, sessions: {...blankSessionsInt} }
+            this.userActivity = { userId : 0, sessions: [...blankDailyActivities] }
+            this.userSession = { userId : 0, sessions: [...blankSessionsInt] }
             this.userPerformances = {...blankPerformancesFolded}
         }else{
             this.mainDatas = datas.mainDatas ? datas.mainDatas : { id: 0, userInfos: {...blankUserInfos}, score: 0, keyData: {...blankNutridatas} }
-            this.userActivity = datas.userActivity ? datas.userActivity : { userId : 0, sessions: {...blankDailyActivities} }
-            this.userSession = datas.userSession ? datas.userSession : { userId : 0, sessions: {...blankSessionsInt} }
+            this.userActivity = datas.userActivity ? datas.userActivity : { userId : 0, sessions: [...blankDailyActivities] }
+            this.userSession = datas.userSession ? datas.userSession : { userId : 0, sessions: [...blankSessionsInt] }
             this.userPerformances = datas.userPerformances ? datas.userPerformances : {...blankPerformancesFolded}
         }
     }

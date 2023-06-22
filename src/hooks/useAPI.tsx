@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { IMainDatas, IUserActivity, IUserPerformances, IPerformance, IAverageSessions } from '../types/modelTypes'
+import PerformanceModel, { IPerformanceModel } from "../models/performancesModel"
 
 function useAPI(userId : number){
 
@@ -19,15 +20,8 @@ function useAPI(userId : number){
     const [isLoading, setLoading] = useState(true)
     const [isError, setError] = useState(false)
 
-    /*const fetchDatas = async (url : string) =>  {
-        try{
-            const response = await fetch(url)
-            const datas = await response.json()
-            return datas.data
-        }catch(error){
-            console.log(error)
-        }
-    }*/
+    const [formatedUserDatas, setFormatedUserDatas] = useState<IPerformanceModel>() 
+
 
     useEffect(() => {
         async function GetUserDatas(){
@@ -52,11 +46,21 @@ function useAPI(userId : number){
                 setUserActivity(activities)
                 setAverageSessions(sessions)
                 setUserPerformances(perfs)
+
                 setLoading(false)
+
+                if(datas && activities && sessions && perfs) 
+                {
+                    setFormatedUserDatas(new PerformanceModel(userId, {mainDatas: datas, userActivity: activities, userSession: sessions, userPerformances: perfs}))
+                }
+                else{
+                    setFormatedUserDatas(new PerformanceModel(userId))
+                }
 
             }catch(error){
 
                 console.log(error)
+                setFormatedUserDatas(new PerformanceModel(userId))
                 setError(true)
 
             }finally{
@@ -70,7 +74,8 @@ function useAPI(userId : number){
 
     },[userId])
 
-    return {mainDatas : userDatas, userActivity : userActivity, userSession : averageSessions, userPerformances : userPerformances, isLoading, isError}
+    // return {mainDatas : userDatas, userActivity : userActivity, userSession : averageSessions, userPerformances : userPerformances, isLoading, isError}
+    return formatedUserDatas
 }
 
 export default useAPI
