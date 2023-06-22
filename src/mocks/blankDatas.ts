@@ -29,6 +29,37 @@ export const blankSessions = [
         }
 ]
 
+export const blankSessionsInt = [
+    {
+        day: 1,
+        sessionLength: 0
+    },
+    {
+        day: 2,
+        sessionLength: 0
+    },
+    {
+        day: 3,
+        sessionLength: 0
+    },
+    {
+        day: 4,
+        sessionLength: 0
+    },
+    {
+        day: 5,
+        sessionLength: 0
+    },
+    {
+        day: 6,
+        sessionLength: 0
+    },
+    {
+        day: 7,
+        sessionLength: 0
+    }
+]
+
 export const blankNutridatas = {
     calorieCount: 0, 
     proteinCount: 0, 
