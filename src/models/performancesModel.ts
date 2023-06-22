@@ -10,8 +10,7 @@ class PerformanceModel {
     userPerformances : IUserPerformances
 
     constructor(userId : number, datas?: {mainDatas : IMainDatas, userActivity : IUserActivity, userSession : IAverageSessions, userPerformances : IUserPerformances}){
-        // if the datas haven't been successfully retrieved from the API (i.e. not passed as params) => mock them
-        // remplacer par blanks instead of mock datas uniquement les datas manquantes, pas toutes les datas
+        // if some datas haven't been successfully retrieved from the API (i.e. not passed as params) => completed with blankdatas
         if(datas == null){
             this.mainDatas = { id: 0, userInfos: {...blankUserInfos}, score: 0, keyData: {...blankNutridatas} }
             this.userActivity = { userId : 0, sessions: {...blankDailyActivities} }
@@ -43,17 +42,15 @@ class PerformanceModel {
     }
 
     get avgSessions() {
-        //!!! check if length array = 7, check
         const week : Array<string> = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
         // sorting by day as a security
-        const sortedSessions = [...this.userSession.sessions]
-        sortedSessions.sort(function (a : ISessionAvg, b : ISessionAvg){
+        const sortedSessions = [...this.userSession.sessions].sort(function (a : ISessionAvg, b : ISessionAvg){
             if(new Date(a.day) > new Date(b.day)) return 1
             if(new Date(a.day) < new Date(b.day)) return -1
             return 0
-        })
+        }).slice(0,7)
         // from : days : 1 -> 7 => to : days : L -> D
-        const formatedSessions = this.userSession.sessions.map(session => {return ({ day : week[typeof(session.day) === 'number' ? session.day-1 : 0], sessionLength : session.sessionLength })})
+        const formatedSessions = sortedSessions.map(session => {return ({ day : week[typeof(session.day) === 'number' ? session.day-1 : 0], sessionLength : session.sessionLength })})
         return formatedSessions
     }
 

@@ -45,7 +45,7 @@ function useAPI(userId : number){
                 ])
 
                 const nestedDatas = await Promise.all(res.map(r => r.json()))
-                // datas are nested inside a "data" key, so some unfolding is required
+                // datas are nested inside a "data" property, so some unfolding is required
                 const [datas, activities, sessions, perfs] = nestedDatas.map(data => data.data)
 
                 setUserDatas(datas)
