@@ -7,20 +7,18 @@ import DailyActivityChart from './components/DailyActivityChart'
 import AvgSessionChart from './components/AvgSessionChart'
 import PolarChart from './components/PolarChart'
 import ScoreChart from './components/ScoreChart'
-// import PerformanceModel from './models/performancesModel'
 import { blankDailyActivities, blankNutridatas, blankPerformances, blankSessions } from './mocks/blankDatas'
 import useAPI from './hooks/useAPI'
-/*import { useEffect, useState } from 'react'
-import { IPerformanceModel } from './models/performancesModel'*/
 
 function App() {
 
   const userId = 12
   // const userId = 18
 
-  // get all the required datas out of the API
+  // get asynchronously all the required datas out of the API
   const userDatas = useAPI(userId)
   
+  // blank datas as props if real datas still being fetched
   return (
     <div className="App">
       <Header></Header>
