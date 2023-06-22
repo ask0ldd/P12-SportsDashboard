@@ -13,14 +13,14 @@ class PerformanceModel {
         // if the datas haven't been successfully retrieved from the API (i.e. not passed as params) => mock them
         // remplacer par blanks instead of mock datas uniquement les datas manquantes, pas toutes les datas
         if(datas == null){
-            this.mainDatas = ([...USER_MAIN_DATA].filter((data : IMainDatas) => data.id === userId))[0]
+            this.mainDatas = { id: 0, userInfos: { firstName: 'N /', lastName: 'A', age: 0, }, score: 0, keyData: blankNutridatas }
             this.userActivity = { userId : 0, sessions: blankDailyActivities }
             this.userSession = { userId : 0, sessions: blankSessionsInt }
             this.userPerformances = ([...USER_PERFORMANCE].filter((data : IUserPerformances) => data.userId === userId))[0]
         }else{
-            this.mainDatas = datas.mainDatas ? datas.mainDatas : ([...USER_MAIN_DATA].filter((data : IMainDatas) => data.id === userId))[0] // <= replace by blankdatas
-            this.userActivity = datas.userActivity ? datas.userActivity : { userId : 0, sessions: blankDailyActivities } // <= replace by blankdatas
-            this.userSession = datas.userSession ? datas.userSession : { userId : 0, sessions: blankSessionsInt } // <= replace by blankdatas
+            this.mainDatas = datas.mainDatas ? datas.mainDatas : { id: 0, userInfos: { firstName: 'N /', lastName: 'A', age: 0, }, score: 0, keyData: blankNutridatas }
+            this.userActivity = datas.userActivity ? datas.userActivity : { userId : 0, sessions: blankDailyActivities }
+            this.userSession = datas.userSession ? datas.userSession : { userId : 0, sessions: blankSessionsInt }
             this.userPerformances = datas.userPerformances ? datas.userPerformances : ([...USER_PERFORMANCE].filter((data : IUserPerformances) => data.userId === userId))[0] // <= replace by blankdatas
         }
     }
