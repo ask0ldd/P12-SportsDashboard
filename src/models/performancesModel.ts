@@ -25,10 +25,11 @@ class PerformanceModel {
     }
 
     get score() {
-        // "as number" to override the type by default which is : number | undefined (due to the fact it doesn't always exist among the datas)
-        const score : number = this.mainDatas.score as number || this.mainDatas.todayScore as number
+        if(!this.mainDatas.score && !this.mainDatas.todayScore) return 0
+        // obsolete, just a memo : "as number" to override the type by default which is : number | undefined (due to the fact it doesn't always exist among the datas)
+        const score : number | undefined = this.mainDatas.score || this.mainDatas.todayScore
         // check if 0 <= score <= 1
-        return score >= 0 && score <= 1 ? score : 0
+        return score && score >= 0 && score <= 1 ? score : 0
     }
 
     get firstName() {
@@ -37,16 +38,17 @@ class PerformanceModel {
     }
 
     get nutriDatas() {
-        const nutriDatas : INutridatas = {...this.mainDatas.keyData, calorieCount: this.mainDatas.keyData.calorieCount / 1000 } || {...blankNutridatas} // converting cal to kCal
+        // converting cal to kCal : this.mainDatas.keyData.calorieCount / 1000
+        const nutriDatas : INutridatas = {...this.mainDatas.keyData, calorieCount: this.mainDatas.keyData.calorieCount / 1000 } || {...blankNutridatas} 
         return nutriDatas
     }
 
     get avgSessions() {
         const week : Array<string> = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
-        // sorting by day as a security
+        // sorting by date as a security
         const sortedSessions = [...this.userSession.sessions].sort(function (a : ISessionAvg, b : ISessionAvg){
-            if(new Date(a.day) > new Date(b.day)) return 1
-            if(new Date(a.day) < new Date(b.day)) return -1
+            if(a.day > b.day) return 1
+            if(a.day < b.day) return -1
             return 0
         }).slice(0,7)
         // from : days : 1 -> 7 => to : days : L -> D

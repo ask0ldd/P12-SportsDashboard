@@ -25,6 +25,7 @@ function useAPI(userId : number){
                 setLoading(true)
                 setError(false)
 
+                // grouping multiple multiple promises into one / one promise failing => complete failure
                 const res = await Promise.all([
                     fetch(baseUrl + userUrls.datas),
                     fetch(baseUrl + userUrls.activities),
@@ -67,6 +68,7 @@ function useAPI(userId : number){
 
     },[userId])
 
+    // return the fetched datas or some blank datas, all depending of the success of the fetching process
     return formatedUserDatas
 }
 

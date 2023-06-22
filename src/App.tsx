@@ -12,8 +12,8 @@ import useAPI from './hooks/useAPI'
 
 function App() {
 
-  const userId = 12
-  // const userId = 18
+  //const userId = 12
+  const userId = 18
 
   // get asynchronously all the required datas out of the API
   const userDatas = useAPI(userId)
