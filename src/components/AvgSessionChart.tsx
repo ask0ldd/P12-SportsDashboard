@@ -47,9 +47,7 @@ const AvgSessionChart = ({avgSessions} : props) => {
     const postTooltipBG = document.querySelector('#postTooltipBG')
     postTooltipBG?.setAttribute("width", "0%")
 
-    /*const containerRef = useRef<any>()
-    const [containerWidth, setContainerWidth] = useState()*/
-
+    // show dark reactangle from hovered value to 100%
     const onMouseMove = (hoveredData : any) => {
 
         if (hoveredData && hoveredData.activePayload && avgSessions && avgSessions?.length > 0) {
@@ -57,10 +55,12 @@ const AvgSessionChart = ({avgSessions} : props) => {
             const x = hoveredData.activeCoordinate.x
             const postTooltipBG = document.querySelector('#postTooltipBG')
             postTooltipBG?.setAttribute("x", x+'px')
-            postTooltipBG?.setAttribute("width", `calc(100% - ${x}px)`) // length = 100% - part from the start to the active tick on the x axis
+            // length = 100% - length from the x axis start to the active tick
+            postTooltipBG?.setAttribute("width", `calc(100% - ${x}px)`)
         }
     }
     
+    // makes the dark rectangle disappear when the mouse is out of the linechart
     const onMouseOut = () => {
         const postTooltipBG = document.querySelector('#postTooltipBG')
         postTooltipBG?.setAttribute("width", "0%")
@@ -93,7 +93,7 @@ const AvgSessionChart = ({avgSessions} : props) => {
                 <Line connectNulls
                 /* No interpolation between the two Zeros */
                 type='monotoneX' 
-                // type ={func}
+                // type = {func}
                 dataKey="sessionLength"
                 /* Soutenance : Gradient */ 
                 stroke="url(#colorUv)" strokeWidth={2} dot={false}
