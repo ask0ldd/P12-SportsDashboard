@@ -40,8 +40,14 @@ https://recharts.org/en-US/
 Some selected parts of my code
 </u>
 </b><br><br>
+A custom Hook collecting datas out of 4 different endpoints.
+<br><br>
 <img src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/screenshotuseAPI3.jpg">
-
+<br><br>
+A model formatting all the datas collected through the API.
+<br><br>
 <img src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/perfmodel.jpg">
-
+<br><br>
+A polar chart component.
+<br><br>
 <img src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/polarcomponent2.jpg">
