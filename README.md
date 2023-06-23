@@ -4,9 +4,9 @@
 <img src="https://camo.githubusercontent.com/162d47dd521424730efdf29e8977ddb64d3f96bc076c1efbef1c114b05024f07/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d266d6573736167653d4a61766173637269707426636f6c6f723d463744463145266c6f676f3d4a617661736372697074266c6f676f436f6c6f723d626c61636b267374796c653d666c61742d737175617265">
 </div>
 
-<div style="width:100%; display:flex; background-color: black; padding:1rem; color:#fff; font-weight:600; margin: 1rem 0;">
+<b>
 Description
-</div>
+</b>
 
 L'Environnement de développement a généré en faisant usage de Vite.
 
@@ -16,9 +16,9 @@ Typescript a été utilisé pour ce projet avec une attention particulière port
 
 La JSDoc de l'ensemble des composants a été produite.
 
-<div style="width:100%; display:flex; background-color: black; padding:1rem; color:#fff; font-weight:600; margin: 1rem 0;">
+<b>
 Liens Utiles
-</div>
+</b>
 
 Backend Repo :
 
