@@ -49,7 +49,7 @@ function useAPI(userId : number){
                     setFormatedUserDatas(new PerformanceModel(userId, {mainDatas: datas, userActivity: activities, userSession: sessions, userPerformances: perfs}))
                 }
                 else{
-                    // instaciate the model with some generic blank datas
+                    // instanciate the model with some generic blank datas
                     setFormatedUserDatas(new PerformanceModel(userId))
                 }
 
@@ -59,7 +59,7 @@ function useAPI(userId : number){
 
                 setError(true)
                 console.log(error)
-                // instaciate the model with some generic blank datas
+                // instanciate the model with some generic blank datas
                 setFormatedUserDatas(new PerformanceModel(userId))
 
             }finally{

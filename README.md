@@ -13,9 +13,9 @@ L'Environnement de développement a généré en faisant usage de Vite.
 
 Les différents composants ont été développés à l'aide de React, via une approche fonctionnelle moderne.
 
-Typescript a été utilisé pour ce projet avec une attention particulière portée sur le typage des données.
+Typescript a été utilisé pour ce projet avec une attention particulière portée au typage des données.
 
-La JSDoc de l'ensemble des composants a été produite.
+La JSDoc pour l'ensemble des composants a été produite.
 
 <br>
 <b><u>
