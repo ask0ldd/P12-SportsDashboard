@@ -21,7 +21,7 @@ La JSDoc de l'ensemble des composants a été produite.
 <b><u>
 Liens Utiles
 </u>
-</b><br><br>
+</b><br><br><br>
 
 Backend Repo :
 
