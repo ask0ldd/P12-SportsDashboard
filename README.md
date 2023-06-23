@@ -7,7 +7,7 @@
 <b><u>
 Description
 </u>
-</b><br><br>
+</b><br>
 
 L'Environnement de développement a généré en faisant usage de Vite.
 
@@ -21,7 +21,7 @@ La JSDoc pour l'ensemble des composants a été produite.
 <b><u>
 Liens Utiles
 </u>
-</b><br><br><br>
+</b><br><br>
 
 Backend Repo :
 
@@ -36,10 +36,10 @@ La librairie Recharts devait être utilisée et certains composants customisés 
 https://recharts.org/en-US/
 <br>
 
-<b><u>
+<br><b><u>
 Some selected parts of my code
 </u>
 </b><br><br>
 <img src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/screenshotuseAPI3.jpg">
 
-<img src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/polarcomponent.jpg">
+<img src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/polarcomponent2.jpg">
