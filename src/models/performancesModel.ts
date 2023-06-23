@@ -9,7 +9,15 @@ class PerformanceModel {
     userSession : IAverageSessions
     userPerformances : IUserPerformances
 
-    constructor(userId : number, datas?: {mainDatas : IMainDatas, userActivity : IUserActivity, userSession : IAverageSessions, userPerformances : IUserPerformances}){
+    constructor(
+        userId : number, 
+        datas?: {
+            mainDatas : IMainDatas, 
+            userActivity : IUserActivity, 
+            userSession : IAverageSessions, 
+            userPerformances : IUserPerformances
+        }
+    ){
         // if some datas haven't been successfully retrieved from the API (i.e. not passed as params) => completed with blankdatas
         if(datas == null){
             this.mainDatas = { id: 0, userInfos: {...blankUserInfos}, score: 0, keyData: {...blankNutridatas} }

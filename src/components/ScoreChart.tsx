@@ -65,9 +65,9 @@ const ScoreChart = ({score} : props) => {
                 cornerRadius={10}
                 />
                 <text x={0} y={0} fill="black" textAnchor="middle" dominantBaseline="central">
-                    <tspan x="50%" y="42%" fontSize="26" fontWeight={600}>{datas[0].score ? datas[0].score*100 : 0}%</tspan>
-                    <tspan x="50%" dy="1.54rem" fontSize="16" fill="#74798C">de votre</tspan>
-                    <tspan x="50%" dy="1.4rem" fontSize="16" fill="#74798C">objectif</tspan>
+                    <tspan x="50.5%" y="41%" fontSize="26" fontWeight={600}>{datas[0].score ? datas[0].score*100 : 0}%</tspan>
+                    <tspan x="50%" y="51.2%" /*dy="1.54rem"*/ fontSize="16" fontWeight={500} fill="#74798C">de votre</tspan>
+                    <tspan x="50%" y="61%" /*dy="1.4rem"*/ fontSize="16" fontWeight={500} fill="#74798C">objectif</tspan>
                 </text>
             </RadialBarChart>
         </ResponsiveContainer>
