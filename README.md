@@ -1,5 +1,4 @@
 <hr>
-<br>
 <b>Description</b>
 <br>
 <hr>
