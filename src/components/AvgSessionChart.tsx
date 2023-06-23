@@ -50,12 +50,13 @@ const AvgSessionChart = ({avgSessions} : props) => {
     /*const containerRef = useRef<any>()
     const [containerWidth, setContainerWidth] = useState()*/
 
-    const onMouseMove = (hoveredData : any) => { // any > needs better typing
+    const onMouseMove = (hoveredData : any) => {
 
         if (hoveredData && hoveredData.activePayload && avgSessions && avgSessions?.length > 0) {
+            // x : coordinates of the active tick on the x axis
             const x = hoveredData.activeCoordinate.x
             const postTooltipBG = document.querySelector('#postTooltipBG')
-            postTooltipBG?.setAttribute("x", x+'px') // x coordinates of the active tick on the x axis
+            postTooltipBG?.setAttribute("x", x+'px')
             postTooltipBG?.setAttribute("width", `calc(100% - ${x}px)`) // length = 100% - part from the start to the active tick on the x axis
         }
     }
