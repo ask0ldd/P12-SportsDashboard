@@ -87,27 +87,15 @@ const AvgSessionChart = ({avgSessions} : props) => {
                 </defs>
                 <rect id="postTooltipBG" x="9%" width="0%" height="100%" opacity="0.15" /* dark BG following the Tooltip */
                 />
-                <XAxis dataKey="day"
-                padding={{ left: 0, right: 0 }}
-                tickLine={false}
-                axisLine={false}
-                tick={{ fill: '#FF8484' }}
-                />
-                <YAxis dataKey="sessionLength"
-                padding={{ top: 0, bottom: 0 }}
-                hide={true}
-                domain={['dataMin-10', 'dataMax+10']}
-                />
-                <Line 
-                connectNulls
+                <XAxis dataKey="day" padding={{ left: 0, right: 0 }} tickLine={false} axisLine={false} tick={{ fill: '#FF8484' }} />
+                <YAxis dataKey="sessionLength" padding={{ top: 0, bottom: 0 }} hide={true} domain={['dataMin-10', 'dataMax+10']} />
+                <Line connectNulls
                 /* No interpolation between the two Zeros */
                 type='monotoneX' 
                 // type ={func}
                 dataKey="sessionLength"
                 /* Soutenance : Gradient */ 
-                stroke="url(#colorUv)" 
-                strokeWidth={2}
-                dot={false}
+                stroke="url(#colorUv)" strokeWidth={2} dot={false}
                 />
                 <Tooltip
                 cursor={false}

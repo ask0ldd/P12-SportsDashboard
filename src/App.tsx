@@ -10,10 +10,15 @@ import ScoreChart from './components/ScoreChart'
 import { blankDailyActivities, blankNutridatas, blankPerformances, blankSessions } from './mocks/blankDatas'
 import useAPI from './hooks/useAPI'
 
+/**
+ * Component : Displaying the performances page.
+ * @Component
+ * @return ( <App/> )
+ */
 function App() {
 
-  //const userId = 12
-  const userId = 18
+  const userId = 12
+  //const userId = 18
 
   // get asynchronously all the required datas out of the API
   const userDatas = useAPI(userId)

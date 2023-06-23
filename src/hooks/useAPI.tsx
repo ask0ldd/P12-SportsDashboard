@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react"
 import PerformanceModel, { IPerformanceModel } from "../models/performancesModel"
 
+/**
+ * Function : Fetch performances datas out of the API.
+ * @param {number} userId
+ * @return ({IPerformanceModel}) - Fetched performances datas for the user
+ */ 
 function useAPI(userId : number){
 
     const baseUrl = "http://localhost:3000/"
