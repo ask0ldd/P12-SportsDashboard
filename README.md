@@ -34,3 +34,11 @@ https://www.notion.so/openclassrooms/Copy-of-Dev4U-projet-Learn-Home-6686aa4b5f4
 La librairie Recharts devait être utilisée et certains composants customisés :
 
 https://recharts.org/en-US/
+
+<br><br>
+
+<b><u>
+Some selected parts of my code
+</u>
+</b><br><br>
+<img src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/screenshotuseAPI.jpg">
