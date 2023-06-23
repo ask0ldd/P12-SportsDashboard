@@ -16,11 +16,11 @@ Description :
 </u>
 </b><br>
 
-The dev environment was generated using Vite.
+The development environment was generated using Vite.
 
-All the components were implemented with the use of React, through a functional approach.
+All the components were implemented with the help of React, through a functional approach.
 
-Typescript was used on this project, with a real focus on precise typing.
+Typescript was used, with a real focus on precise typing.
 
 And finally, the JSDoc of all components was produced.
 
@@ -30,7 +30,7 @@ Some useful Links :
 </u>
 </b><br><br>
 
-The Backend Repo :
+The Backend Repo
 
 https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard
 
