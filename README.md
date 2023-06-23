@@ -1,8 +1,8 @@
----
-
-Description
-
----
+<hr>
+<br>
+<b>Description</b>
+<br>
+<hr>
 
 L'Environnement de développement a généré en faisant usage de Vite.
 
