@@ -41,4 +41,4 @@ https://recharts.org/en-US/
 Some selected parts of my code
 </u>
 </b><br><br>
-<img src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/screenshotuseAPI.jpg">
+<img src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/screenshotuseAPI2.jpg">
