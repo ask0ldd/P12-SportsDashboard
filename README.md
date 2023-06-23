@@ -12,33 +12,33 @@ The Dashboard I had to produce :
 <br>
 
 <b><u>
-Description
+Description :
 </u>
 </b><br>
 
-L'Environnement de développement a généré en faisant usage de Vite.
+The dev environment was generated using Vite.
 
-Les différents composants ont été développés à l'aide de React, via une approche fonctionnelle moderne.
+All the components were implemented with the use of React, through a functional approach.
 
-Typescript a été utilisé pour ce projet avec une attention particulière portée au typage des données.
+Typescript was used on this project, with a real focus on precise typing.
 
-La JSDoc pour l'ensemble des composants a été produite.
+And finally, the JSDoc of all components was produced.
 
 <br>
 <b><u>
-Liens Utiles
+Some useful Links :
 </u>
 </b><br><br>
 
-Backend Repo :
+The Backend Repo :
 
 https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard
 
-Production d'un tableau analytics devant satisfaire les users stories suivantes :
+The users stories with all the tasks I had to tackle in order to produce this analytic dashboard :
 
 https://www.notion.so/openclassrooms/Copy-of-Dev4U-projet-Learn-Home-6686aa4b5f44417881a4884c9af5669e
 
-La librairie Recharts devait être utilisée et certains composants customisés :
+The Rechart library has been used on this project, with some customized components :
 
 https://recharts.org/en-US/
 <br>
