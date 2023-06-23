@@ -4,6 +4,13 @@
   <img src="https://img.shields.io/static/v1?label=&message=Typescript&color=0088CC&logo=Typescript&logoColor=white&style=flat-square">
 </div><br><br>
 
+<br><br><b><u>
+The Dashboard I had to produce :
+</u>
+</b><br><br>
+<img src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/dashboard.jpg">
+<br><br>
+
 <b><u>
 Description
 </u>
@@ -48,6 +55,6 @@ A model formatting all the datas collected through the API.
 <br><br>
 <img src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/perfmodel.jpg">
 <br><br>
-A polar chart component.
+A customized polar chart component.
 <br><br>
 <img src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/polarcomponent2.jpg">
