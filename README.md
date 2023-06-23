@@ -4,12 +4,12 @@
   <img src="https://img.shields.io/static/v1?label=&message=Typescript&color=0088CC&logo=Typescript&logoColor=white&style=flat-square">
 </div><br><br>
 
-<br><br><b><u>
+<b><u>
 The Dashboard I had to produce :
 </u>
 </b><br><br>
 <img style="border:1px solid black;" src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/dashboard2.jpg">
-<br><br>
+<br>
 
 <b><u>
 Description
