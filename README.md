@@ -8,7 +8,7 @@
 The Dashboard I had to produce :
 </u>
 </b><br><br>
-<img src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/dashboard.jpg">
+<img style="border:1px solid black;" src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/dashboard.jpg">
 <br><br>
 
 <b><u>
