@@ -26,7 +26,7 @@ const CustomXAxisTick = (value : number, index:number) : string => {
  * @return ( <resizedLegendValue/> )
  */
 const resizedLegendValue = (value: string/*, entry: any*/) => {
-    return <span style={{fontSize:"14px", color:"#74798C", marginLeft:"8px"}}>{value}</span>
+    return <span style={{fontSize:"14px", color:"#74798C", marginLeft:"8px", display:"inline-block", transform:"translateY(-1px)"}}>{value}</span>
 }
 
 /**
