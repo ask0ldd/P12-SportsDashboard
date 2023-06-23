@@ -42,4 +42,6 @@ Some selected parts of my code
 </b><br><br>
 <img src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/screenshotuseAPI3.jpg">
 
+<img src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/perfmodel.jpg">
+
 <img src="https://github.com/ask0ldd/P12-SportsDashboard/blob/main/public/screenshots/polarcomponent2.jpg">
