@@ -6,7 +6,7 @@
 
 <b>
 Description
-</b><br>
+</b><br><br>
 
 L'Environnement de développement a généré en faisant usage de Vite.
 
@@ -18,7 +18,7 @@ La JSDoc de l'ensemble des composants a été produite.
 
 <b>
 Liens Utiles
-</b><br>
+</b><br><br>
 
 Backend Repo :
 
